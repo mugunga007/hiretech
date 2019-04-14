@@ -1,0 +1,68 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: shema
+ * Date: 2019/02/08
+ * Time: 20:01
+ */
+
+use yii\grid\GridView;
+use frontend\models\ProviderJob;
+use yii\widgets\Pjax;
+use yii\helpers\Html;
+use yii\widgets\ListView;
+use yii\bootstrap\Modal;
+use yii\helpers\Url;
+/* @var $this yii\web\View */
+/* @var $searchModel frontend\models\ProviderJobSearch */
+/* @var $dataProvider yii\data\ActiveDataProvider */
+
+?>
+
+
+<div class="container">
+    <div class="row  ">
+    <div class="col-md-1">
+    </div>
+        <div class="col-md-10 ">
+            <?=$this->render('prodashlayout')?>
+        </div>
+        <div class="col-md-1">
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+
+            <a class="btn mybtnsuccess" href="<?=Url::to('providerjobs')?>"><i class="fa fa-plus-circle"></i> Create new Job Offer</a>
+
+
+
+            <hr>
+
+    <?php
+
+   // foreach ($providerjoblist as $projob) {
+        ?>
+
+        <?php
+ //   }
+    ?>
+
+
+            <?php
+
+            echo ListView::widget([
+                    'dataProvider'=>$dataProvider,
+                    'itemView'=>'../provider-job/_providerjob',
+                    'emptyText'=>'No Offers Registered Yet'
+            ])
+
+            ?>
+        </div>
+
+
+</div>
+</div>
+
+

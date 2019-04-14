@@ -1,0 +1,531 @@
+
+.body-background{
+    background-color: #f9f9f9;
+    font-family: Verdana,serif;
+    color: #545454;
+}
+
+
+
+.titlecolor{
+    background-color: #3f9cf5;
+    color: white;
+
+}
+
+.titlecolorgray{
+    background-color: #cbcbcb;
+    color: white;
+
+}
+
+.myfavoriteyes{
+
+   color: gray;
+    margin: 4px;
+
+}
+
+.myfavoriteyes:hover{
+    color: #272727;
+    margin: 4px;
+}
+
+.bookmarked{
+    color: #272727;
+}
+
+.mycolor{
+    color: #3f9cf5;
+}
+
+.mybtnprimary{
+    background-color: #409ee3;
+    color: white;
+    border: 0px;
+    box-shadow: 3px 4px 2px 0px #b9b9b9;
+}
+.mybtnprimary:hover{
+    box-shadow: 2px 3px 1px 0px #b9b9b9;
+    color: white;
+    background-color: #228fdf;
+}
+
+.mybtnsuccess{
+    background-color: #5cb85c;
+    color: white;
+    border: 0px;
+    box-shadow: 3px 4px 2px 0px #b9b9b9;
+
+}
+
+
+.mybtnsuccess:hover{
+    box-shadow: 2px 3px 1px 0px #b9b9b9;
+    color: white;
+    background-color: #49a949;
+}
+
+.mybtndesign{
+    background-color: orange;
+    color: white;
+    border: 0px;
+    box-shadow: 3px 4px 2px 0px #b9b9b9;
+    opacity: 0.7;
+}
+
+.mybtndesign:hover{
+    box-shadow: 2px 3px 1px 0px #b9b9b9;
+    color: white;
+    background-color: #49a949;
+}
+
+.mybtndanger{
+    background-color: #dc3545;
+    color: white;
+    border: 0px;
+    box-shadow: 3px 4px 2px 0px #b9b9b9;
+}
+.mybtndanger:hover{
+    box-shadow: 2px 3px 1px 0px #b9b9b9;
+    color: white;
+    background-color: #df4352;
+}
+
+.mytext-right{
+    float: right;
+}
+
+.myform{
+    background-color: white;
+    border-bottom: 1px solid #d5d5d5;
+    border-left: 1px solid #d5d5d5;
+    border-right: 0px ;
+    border-top: 0px;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 3px 4px 2px 0px #b9b9b9;
+
+}
+
+.myformsearch{
+    background-color: #f3f3f3;
+
+    border-left: 1px solid #d5d5d5;
+    border-right: 0px ;
+
+    padding: 40px;
+
+
+}
+
+/*
+.myformblue{
+    background-color: white;
+    border-bottom: 1px solid #d5d5d5;
+    border-left: 1px solid #d5d5d5;
+    border-right: 0px ;
+    border-top: 0px;
+    padding: 40px;
+    border-bottom-right-radius: 15%;
+    border-bottom-left-radius: 15%;
+    box-shadow: 3px 4px 2px 0px #b9b9b9;
+
+}
+*/
+.homepagead{
+    background-color: white;
+    border-bottom: 1px solid #d5d5d5;
+    border-left: 1px solid #d5d5d5;
+    border-right: 0px ;
+    border-top: 0px;
+    padding: 40px;
+    border-bottom-right-radius: 15%;
+    border-bottom-left-radius: 15%;
+    box-shadow: 3px 4px 2px 0px #b9b9b9;
+
+}
+
+.seekerslist{
+    background-color: #f5f5f5;
+
+    border: 1px solid #d1d1d1;
+    width: 700px;
+    padding: 8px;
+    border-radius: 8px;
+    margin: 3px;
+}
+
+.seekerslist h3{
+    margin-top: 5px;
+}
+.seekerslist p{
+    color: #919191;
+}
+
+.selectedlist{
+    background-color: #f5f5f5;
+
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    width: 700px;
+    padding: 8px;
+    box-shadow: 0 2px 4px 6px rgba(131, 131, 131, 0.2);
+    margin: 8px;
+}
+
+.selectedlist h3{
+    margin-top: 5px;
+}
+.selectedlist p{
+    color: #919191;
+}
+
+.selectedlist:hover{
+    box-shadow: 0 6px 8px 10px rgba(131, 131, 131, 0.2);
+    transition: .3s;
+}
+
+/*
+.seekerprofile{
+    background-color: #f5f5f5;
+
+    border: 1px solid #d1d1d1;
+    width: 800px;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.seekerprofile h3{
+    margin-top: 5px;
+}
+.seekerprofile p{
+    color: #919191;
+}
+
+*/
+
+.bg-img {
+    /* The image used */
+    background-image: url("../img/homemain2-crop.jpg");
+
+     min-height: 450px;
+
+    width: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+
+/* Add styles to the form container */
+.hcontainer {
+    position: absolute;
+    right: 0;
+
+   height: 100%;
+
+    width: 500px;
+    padding: 16px;
+    background-color: black;
+    opacity: .6;
+;
+
+}
+.hcontainer p{
+    color: white;
+    font-size: 28px;
+    text-align: center;
+    margin-top: 40%;
+}
+
+
+/* Full-width input fields
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+*/
+
+/* Set a style for the submit button */
+.hbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+.hbtn:hover {
+    opacity: 1;
+}
+
+/* Badge Notification */
+.pending_notification .badge {
+
+    border-radius: 50%;
+    background: red;
+    color: white;
+}
+
+/* Spaces top and bottom */
+
+.somespace{
+  margin: 5px;
+}
+
+
+/* Sidebar css */
+
+
+ .sidebar {
+  width: 180px;
+  position: fixed;
+  z-index: 1;
+  //top: 0;
+  left: 0;
+  background-color: #f0f0f0;
+
+
+  overflow-x: hidden;
+  /* padding-top: 0px; */
+
+}
+/*
+.sidebar a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+  border-bottom: #c4c4c4 solid 1px;
+}
+
+*/
+/*
+.sidebar a:hover {
+  color: #b7b7b7;
+}
+*/
+
+.myjobcard{
+    width: 30%;
+    /* height: 40%; */
+
+    background-color: #f9f9f9;
+    border: #e5e5e5 1px solid;
+
+    border-radius: 5px;
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    padding-top: 0;
+}
+
+.myjobcard .myjobcardheader{
+   top: 0;
+    height: 20%;
+    width: 100%;
+
+    border-bottom: #e2e2e2 1px solid;
+    text-align: center;
+
+}
+
+.mycenter{
+
+
+     margin: auto;
+    border: red 2px solid;
+
+}
+
+.navpil li{
+
+
+    border: #c3c3c3 1px solid;
+    border-radius: 6px;
+    box-shadow: 0 2px 3px 0 #c3c3c3;
+    margin: 4px;
+   /* background-color: red; */
+}
+
+.navpil li a{
+    text-decoration: none;
+    color: #585858;
+
+
+}
+
+
+
+
+.mypanel:hover{
+    background-color: #fdfdfd;
+    color: #7697a0;
+    box-shadow: 0 4px 5px 0 #d3d3d3;
+    transition: 0.2s;
+}
+
+.panelink a{
+   text-decoration: none;
+    color: #6e6e6e;
+}
+
+/*
+.navpil a i{
+    color: green;
+}
+
+*/
+
+.labelnotification{
+    position: absolute;
+
+}
+.navpil li:hover{
+
+
+    border: #c3c3c3 1px solid;
+    border-radius: 6px;
+    box-shadow: 4px 8px 12px 0 rgba(0,0,0,0.2);
+    transition: .2s;
+}
+
+.myactive a{
+   background: #ebebeb;
+    border-radius: 6px;
+    box-shadow: 4px 8px 12px 0 rgba(0,0,0,0.2);
+    transition: .2s;
+
+
+}
+
+.myjobcard .myjobcardbody{
+ padding: 2px 0px 2px 8px;
+}
+
+.myjobcard .myjobcardfooter{
+   border-top: #e2e2e2 1px solid;
+    padding-top: 3px;
+}
+
+.myjobcard:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+
+.mine{
+    box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2);
+
+}
+
+.mine:hover{
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,0.2);
+    transition: .3s;
+}
+
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+}
+
+.affix {
+    top: 80px;
+    width: 100%;
+    z-index: 9999 !important;
+}
+
+.affix + .container-fluid {
+    padding-top: 70px;
+}
+
+.seekerofferdiv{
+
+}
+
+.seekerofferdiv img{
+    width: 40px;
+    height: 40px;
+}
+
+div .linktext {
+    text-decoration: none;
+    cursor: default;
+    color: #454545;
+
+}
+
+
+.dashdiv {
+    margin-left: 10px;
+    box-shadow: 4px 6px 10px 0 rgba(0,0,0,0.2);
+    border-radius: 10px;
+
+}
+
+.dashdiv:hover {
+
+    box-shadow: 8px 12px 16px 0 rgba(0,0,0,0.2);
+    transition: .2s;
+
+
+}
+
+.col-sm-3 a{
+text-decoration: none;
+    color: #696969;
+}
+
+.rowend {
+    border-bottom: 1px solid #e2e2e2;
+    margin-bottom: 20px;
+
+}
+
+body{
+    margin: 0;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 30%;
+}
+
+.sticky + .content {
+    padding-top: 102px;
+}
+
+.div-inline{
+    display: inline-block;
+}
+
+.box {
+    float: left;
+    width: 200px;
+    height: 100px;
+    margin: 1em;
+}
+.after-box {
+    clear: left;
+}
