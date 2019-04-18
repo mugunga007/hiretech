@@ -702,7 +702,7 @@ class ProviderController extends Controller
     $provider_job = new ActiveDataProvider([
         'query' => ProviderJob::find()
         ->where(['provider_id'=>$provider_id])
-        ->andWhere(['status'=>3])
+        ->andWhere(['>=','status',3])
     ]);
 
 
