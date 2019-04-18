@@ -48,12 +48,13 @@ $bookmark_seeker = new BookmarkSeeker();
                 'template'=>' <a href="{url}"> <i class="fa fa-search"></i> {label} </a>'
             ],
 
+            /*
             ['label'=>' Saved Search',
                 'url'=>['provider/index'],
                 'template'=>' <a href="{url}"> <i class="fa fa-history"></i> {label} </a>'
             ],
 
-
+            */
 
 
             ['label'=>' Saved Profiles',
