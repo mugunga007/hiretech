@@ -37,7 +37,7 @@ AppAsset::register($this);
 
     <?php
     NavBar::begin([
-        'brandLabel' => 'App',
+        'brandLabel' => 'HireTechs',
             //Yii::$app->name,
 
         'brandUrl' => Yii::$app->homeUrl,
