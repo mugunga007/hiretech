@@ -43,6 +43,7 @@ use yii\helpers\Url;
         </div>
 
         <div class="col-md-4">
+
             <div class="animated fadeInRight">
                 <div class="myform">
                     <div class="well well-sm text-center titlecolor"> Already registered? Login here! </div>
