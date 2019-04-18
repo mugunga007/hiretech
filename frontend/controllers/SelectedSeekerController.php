@@ -8,6 +8,7 @@ use frontend\models\SelectedSeekerSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 
 /**
  * SelectedSeekerController implements the CRUD actions for SelectedSeeker model.
@@ -25,6 +26,17 @@ class SelectedSeekerController extends Controller
                 'actions' => [
                     'delete' => ['POST'],
                 ],
+                'access'=>[
+                    'class'=>AccessControl::className(),
+                    'rules'=>[
+                        [
+                            'allow'=>true,
+                            'roles'=>['@']
+                        ],
+
+
+                    ]
+                ]
             ],
         ];
     }
@@ -33,6 +45,8 @@ class SelectedSeekerController extends Controller
      * Lists all SelectedSeeker models.
      * @return mixed
      */
+
+    /*
     public function actionIndex()
     {
         $searchModel = new SelectedSeekerSearch();
@@ -43,6 +57,7 @@ class SelectedSeekerController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
+    */
 
     /**
      * Displays a single SelectedSeeker model.

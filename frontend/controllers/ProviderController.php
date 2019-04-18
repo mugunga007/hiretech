@@ -23,6 +23,7 @@ use frontend\models\ProviderJob;
 use frontend\models\ProviderJobSearch;
 use DateTime;
 use yii\data\Sort;
+use yii\filters\AccessControl;
 
 
 /**
@@ -39,6 +40,7 @@ class ProviderController extends Controller
 
     public function behaviors()
     {
+
         return [
             'verbs' => [
                 'class' => VerbFilter::className(),
@@ -46,13 +48,28 @@ class ProviderController extends Controller
                     'delete' => ['POST'],
                 ],
             ],
-        ];
+            'access'=>[
+                'class'=>AccessControl::className(),
+                'rules'=>[
+                    [
+                      'allow'=>true,
+                      'roles'=>['@']
+                    ],
+
+
+                ]
+
+        ]];
+
+
+
     }
 
     /**
      * Lists all Provider models.
      * @return mixed
      */
+    /*
     public function actionIndex()
     {
         $searchModel = new ProviderSearch();
@@ -63,6 +80,7 @@ class ProviderController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
+    */
 
     /**
      * Displays a single Provider model.
@@ -70,12 +88,15 @@ class ProviderController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
+
+    /*
     public function actionView($id)
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
     }
+    */
 
     /**
      * Creates a new Provider model.

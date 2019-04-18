@@ -9,6 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use DateTime;
+use yii\filters\AccessControl;
 
 /**
  * ProviderJobController implements the CRUD actions for ProviderJob model.
@@ -26,6 +27,17 @@ class ProviderJobController extends Controller
                 'actions' => [
                     'delete' => ['POST'],
                 ],
+                'access'=>[
+                    'class'=>AccessControl::className(),
+                    'rules'=>[
+                        [
+                            'allow'=>true,
+                            'roles'=>['@']
+                        ],
+
+
+                    ]
+                ]
             ],
         ];
     }
@@ -34,6 +46,8 @@ class ProviderJobController extends Controller
      * Lists all ProviderJob models.
      * @return mixed
      */
+
+    /*
     public function actionIndex()
     {
         $searchModel = new ProviderJobSearch();
@@ -44,6 +58,7 @@ class ProviderJobController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
+    */
 
     /**
      * Displays a single ProviderJob model.

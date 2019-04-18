@@ -8,6 +8,7 @@ use frontend\models\JobTypeSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 
 /**
  * JobTypeController implements the CRUD actions for JobType model.
@@ -26,6 +27,20 @@ class JobTypeController extends Controller
                     'delete' => ['POST'],
                 ],
             ],
+
+            'access'=>[
+                'class'=>AccessControl::className(),
+                'rules'=>[
+                    [
+                        'allow'=>true,
+                        'roles'=>['@']
+                    ],
+
+
+                ]
+                ]
+
+
         ];
     }
 
@@ -33,6 +48,7 @@ class JobTypeController extends Controller
      * Lists all JobType models.
      * @return mixed
      */
+    /*
     public function actionIndex()
     {
         $searchModel = new JobTypeSearch();
@@ -43,6 +59,7 @@ class JobTypeController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
+    */
 
     /**
      * Displays a single JobType model.

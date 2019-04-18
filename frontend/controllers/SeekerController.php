@@ -18,6 +18,7 @@ use frontend\models\SignupForm;
 use yii\web\UploadedFile;
 use frontend\models\SeekerJobType;
 use DateTime;
+use yii\filters\AccessControl;
 
 
 /**
@@ -36,6 +37,17 @@ class SeekerController extends Controller
                 'actions' => [
                     'delete' => ['POST'],
                 ],
+                'access'=>[
+                    'class'=>AccessControl::className(),
+                    'rules'=>[
+                        [
+                            'allow'=>true,
+                            'roles'=>['@']
+                        ],
+
+
+                    ]
+                ]
             ],
         ];
     }
@@ -44,6 +56,8 @@ class SeekerController extends Controller
      * Lists all Seeker models.
      * @return mixed
      */
+
+    /*
     public function actionIndex()
     {
         $searchModel = new SeekerSearch();
@@ -54,7 +68,7 @@ class SeekerController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
-
+*/
     /**
      *
      * Edit job types for a job seeker
