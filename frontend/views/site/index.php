@@ -45,7 +45,7 @@ use yii\helpers\Url;
         <div class="col-md-4">
             <div class="animated fadeInRight">
                 <div class="myform">
-                    <div class="well well-sm text-center titlecolor"> Already registered? Login here! </div>
+                    <div class="well well-sm text-center titlecolor"> Alreadyoooo registered? Login here! </div>
                     <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
 
                     <?= $form->field($model, 'username')->textInput() ?>
