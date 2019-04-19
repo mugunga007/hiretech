@@ -42,7 +42,7 @@ AppAsset::register($this);
 
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar-default navbar-fixed-top',
+            'class' => 'navbar navbar-default navbar-fixed-top text-center',
 
         ],
 
@@ -52,10 +52,12 @@ AppAsset::register($this);
         ['label' => '<i class="fa fa-home "></i>  Home', 'url' => ['/site/index'],
         'glyphicon'=>'cog',
         ],
+        /*
         ['label' => '<i class="fa fa-book-open"></i> About', 'url' => ['/site/about'],
             'icon'=>'cog',
             ],
-        ['label' => '<i class="fa fa-address-book"></i>  Contact', 'url' => ['/site/contact']],
+        */
+        ['label' => '<i class="fa fa-edit"></i>  Contact', 'url' => ['/site/contact']],
     ];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => '<i class="fa fa-user-cog"></i>  Signup as', 'url' => ['/site/signup'],
@@ -63,9 +65,9 @@ AppAsset::register($this);
             ['label' => '<i class="fa fa-address-card"></i>  Job Seeker', 'url' => ['/seeker/create']],
             ['label' => '<i class="fa fa-address-card"></i>  Job Provider', 'url' => ['/provider/create']],
         ]];
-
+/*
         $menuItems[] = ['label' => '<i class="fa fa-sign-in-alt"></i> Login as', 'url' => ['/site/login']];
-
+*/
     } else {
         $role = Yii::$app->user->identity->role;
         $name = '';
@@ -128,22 +130,27 @@ AppAsset::register($this);
     NavBar::end();
     ?>
 
-    <div class="container ">
-        <?= Breadcrumbs::widget([
+<div class="container">
+
+        <?php
+        /*
+        Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
+        ])
+        */ ?>
+
         <?= Alert::widget() ?>
         <?= $content ?>
-    </div>
 </div>
-
+</div>
 <footer class="footer">
-    <div class="container">
+
         <p class="pull-left">&copy; HireTech <?= date('Y') ?></p>
 
-        <p class="pull-right"></p>
-    </div>
+        <p class="pull-right">&copy; S. Landry Design </p>
+
 </footer>
+
 
 <?php $this->endBody() ?>
 </body>

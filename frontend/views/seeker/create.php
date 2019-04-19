@@ -8,9 +8,6 @@ use yii\helpers\Url;
 
 
 ?>
-<div class="seeker-create">
-
-   <div class="container">
 
        <div class="row">
            <div class="col-md-4">
@@ -37,6 +34,6 @@ use yii\helpers\Url;
 
 
        </div>
-   </div>
 
-</div>
+
+

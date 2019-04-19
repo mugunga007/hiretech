@@ -11,18 +11,38 @@ use yii\captcha\Captcha;
 $this->title = 'Contact';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-contact">
-    <h1><?= Html::encode($this->title) ?></h1>
+
+<div class="row ">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+
+        <div class="page-header text-center">
+            <h1> <i class="fa fa-edit"></i> </h1>
+   
 
     <p>
-        If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.
+        Any Concern or Suggestion about <b>HireTech</b>?,
+        Don't hesitate to write to us, We will get back to you shortly, Thank you.
     </p>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+    </div>
+</div>
 
     <div class="row">
-        <div class="col-lg-5">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+            <div data-aos="fade-left">
+                <div class="myform">
+                    <div class="well well-sm text-center titlecolor">
+                        <i class="fa fa-envelope-open-text"></i> Contact us </div>
             <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
 
-                <?= $form->field($model, 'name')->textInput(['autofocus' => true]) ?>
+                <?= $form->field($model, 'name')->textInput() ?>
 
                 <?= $form->field($model, 'email') ?>
 
@@ -31,7 +51,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($model, 'body')->textarea(['rows' => 6]) ?>
 
                 <?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
-                    'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
+                    'template' => '<div class="row">
+            <div class="col-md-8">{image}</div>
+            <div class="col-md-8">{input}</div>
+            </div>',
                 ]) ?>
 
                 <div class="form-group">
@@ -39,7 +62,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
 
             <?php ActiveForm::end(); ?>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
         </div>
     </div>
 
-</div>
+
+

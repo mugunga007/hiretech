@@ -8,7 +8,7 @@
 
 
 .titlecolor{
-    background-color: #3f9cf5;
+    background-color: #409ee3;
     color: white;
 
 }
@@ -44,6 +44,7 @@
     color: white;
     border: 0px;
     box-shadow: 3px 4px 2px 0px #b9b9b9;
+    margin: 3px;
 }
 .mybtnprimary:hover{
     box-shadow: 2px 3px 1px 0px #b9b9b9;
@@ -97,12 +98,14 @@
 }
 
 .myform{
+
     background-color: white;
     border-bottom: 1px solid #d5d5d5;
     border-left: 1px solid #d5d5d5;
     border-right: 0px ;
     border-top: 0px;
-    padding: 40px;
+    padding: 30px;
+    margin-bottom: 20px;
     border-radius: 15px;
     box-shadow: 3px 4px 2px 0px #b9b9b9;
 
@@ -133,16 +136,19 @@
 
 }
 */
+
+
+
 .homepagead{
     background-color: white;
     border-bottom: 1px solid #d5d5d5;
     border-left: 1px solid #d5d5d5;
     border-right: 0px ;
     border-top: 0px;
-    padding: 40px;
-    border-bottom-right-radius: 15%;
-    border-bottom-left-radius: 15%;
+    padding: 20px;
+  border-radius: 15px;
     box-shadow: 3px 4px 2px 0px #b9b9b9;
+    margin-bottom: 20px;
 
 }
 

@@ -9,43 +9,50 @@ use yii\helpers\Url;
 ?>
 
 
-<div class="container">
+
+
 
     <div class="row">
 
-        <div class="col-md-8">
+        <div class="col-md-8 ">
+
             <div class="animated fadeInLeft">
                 <div class="homepagead">
 
                     <div class=" text-center">
                         <div class="row">
-                        <img src="<?=Url::to(['img/animefastcl.gif'])?>" width="50%" />
+                            <img src="<?=Url::to(['img/animefastcl.gif'])?>" width="50%" />
 
 
-                        <h3>Are you looking for the <em class="mycolor">right</em> employee?</h3>
-                        <h3>Or are you searching for a job? </h3>
+                            <h3>Are you looking for the <em class="mycolor">right</em> employee?</h3>
+                            <h3>Or are you searching for a job? </h3>
 
-                        <em>You're at the <b class="mycolor">right</b> place, just register with us and open the <b class="mycolor">right</b> doors!</em>
+                            <em>You're at the <b class="mycolor">right</b> place, just register with us and open the <b class="mycolor">right</b> doors!</em>
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
-                        <a type="button" href="<?=Url::to(['seeker/create'])?>" class="btn btn-lg mybtnprimary">I'm searching for a job <i class="fa fa-mouse-pointer "></i></a>
+                                <a type="button" href="<?=Url::to(['seeker/create'])?>"
+                                   class="btn btn-lg mybtnprimary">Searching for a job
+                                    </i></a>
                             </div>
 
-                            <div class="col-sm-6">
-                        <a type="button" href="<?=Url::to(['provider/create'])?>" class="btn btn-lg mybtnprimary">I'm looking for an employee <i class="fa fa-mouse-pointer "></i></a>
+                            <div class="col-sm-6 ">
+                                <a type="button" href="<?=Url::to(['provider/create'])?>"
+                                   class="btn btn-lg mybtnprimary">Looking for an employee
+                                    </i></a>
                             </div>
                         </div>
                     </div>
                 </div>
 
             </div>
+
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-4  ">
             <div class="animated fadeInRight">
                 <div class="myform">
-                    <div class="well well-sm text-center titlecolor"> Already registered? Login here! </div>
+                    <div class="well well-sm text-center "> Already Registered? Sign in </div>
                     <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
 
                     <?= $form->field($model, 'username')->textInput() ?>
@@ -71,17 +78,17 @@ use yii\helpers\Url;
     </div>
 
 
-
-    <div class="jumbotron ">
+<div class="row">
+    <div class="page-header text-center">
         <div class="animated fadeInUp">
-            <h1 class=""> Services</h1>
+            <h2><i class="fa fa-hands-helping"></i></h2>
+            <h1 class="">Our Services </h1>
 
-            <p class="lead">Meet the right people for you work.</p>
+
 
         </div>
     </div>
-
-    <div class="body-content">
+</div>
 
         <div class="row">
             <div class="col-lg-4 text-center">
@@ -122,7 +129,6 @@ use yii\helpers\Url;
             </div>
         </div>
 
-    </div>
 
 
-</div>
+

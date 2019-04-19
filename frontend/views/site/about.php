@@ -11,11 +11,13 @@ use yii\widgets\ActiveForm;
 $this->title = 'About';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-about">
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="container">
+
+<div class="row">
 
     <p>This is the About page. You may modify the following file to customize its content:</p>
+</div>
 
-    <code><?= __FILE__ ?></code>
+
 </div>
 

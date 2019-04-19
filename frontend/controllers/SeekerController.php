@@ -36,8 +36,10 @@ class SeekerController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
+                ]
                 ],
                 'access'=>[
+                    'except'=>['create'],
                     'class'=>AccessControl::className(),
                     'rules'=>[
                         [
@@ -47,7 +49,7 @@ class SeekerController extends Controller
 
 
                     ]
-                ]
+
             ],
         ];
     }
