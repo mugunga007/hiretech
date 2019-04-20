@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <div class="page-header text-center">
             <h1> <i class="fa fa-edit"></i> </h1>
-   
+
 
     <p>
         Any Concern or Suggestion about <b>HireTech</b>?,
