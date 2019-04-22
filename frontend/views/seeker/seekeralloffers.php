@@ -7,6 +7,7 @@
  */
 
 use yii\grid\GridView;
+use yii\widgets\ListView;
 ?>
 
 <div class="container">
@@ -27,19 +28,20 @@ use yii\grid\GridView;
         </div>
 
     </div>
+<div class="row">
+    <div class="col-md-8">
+
 
     <?php
-
-    echo GridView::widget([
+    echo ListView::widget([
         'dataProvider'=>$model,
-        'columns'=>[
-            'status',
-            'provider_job_id',
-            ['class'=>'yii\grid\ActionColumn']
-        ]
+        'itemView'=>'seekeroffer',
+        'emptyText'=>'No new offers!'
+
     ])
 
     ?>
-
+    </div>
+</div>
 
 </div>

@@ -76,7 +76,9 @@ AppAsset::register($this);
 
 
             $name = Yii::$app->user->identity->seeker->firstname;
-
+            $menuItems[] =
+                ['label'=>'<i class="fa fa-tachometer-alt"></i> My Dashboard  </a> </li>',
+                    'url'=>['seeker/seekerdashboard'] ];
             $menuItems[] =
                 '<li> <a href="'.Url::to(['seeker/seekerdashboard']).'" class=""><i class="fa fa-bell "></i> <span class="label label-danger">1</span>  </a> </li>'.
                 '<li>'

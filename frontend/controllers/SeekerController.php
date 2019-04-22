@@ -437,12 +437,25 @@ public function actionSearchseekerss()
      */
 
     public function actionSeekeralloffers(){
+        /*
         $seeker_id = Yii::$app->user->identity->seeker->seeker_id;
         $model = new ActiveDataProvider([
             'query'=>
                 SelectedSeeker::find()
                     ->where(['seeker_id'=>$seeker_id])
                     ->andWhere(['<>','status','Selected']),
+            'pagination'=>[
+                'pageSize'=>3,
+            ]
+        ]);
+        */
+
+        $seeker_id = Yii::$app->user->identity->seeker->seeker_id;
+        $model = new ActiveDataProvider([
+            'query'=>
+                SelectedSeeker::find()
+                    ->where(['seeker_id'=>$seeker_id])
+                    ->andWhere(['status'=>'Confirmed']),
             'pagination'=>[
                 'pageSize'=>3,
             ]

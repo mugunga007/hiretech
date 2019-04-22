@@ -32,6 +32,8 @@ $job_type = JobType::findOne(['job_type_id'=>$provider_job->job_type_id]);
             </h3>
         </div>
         <div class="panel-body">
+
+            <p> <b><i class="fa fa-briefcase"> </i> By:</b> <?=ucfirst($provider_job->provider->names)?></p>
             <p> <b><i class="fa fa-user-tie"> </i> Position:</b> <?=$provider_job->job_title?></p>
             <p><b><i class="fa fa-map-marker-alt"> </i> Location:</b> <?=$provider_job->location?></p>
             <p><b><i class="fa fa-hand-holding-usd"> </i> Salary:</b> <?=$provider_job->salary?></p>

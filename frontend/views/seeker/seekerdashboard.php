@@ -8,6 +8,7 @@
 use yii\helpers\Url;
 use yii\widgets\ListView;
 use frontend\models\SelectedSeeker;
+use frontend\models\BookmarkSeeker;
 ?>
 
 
@@ -42,9 +43,11 @@ use frontend\models\SelectedSeeker;
                         <div class="panel-heading">
                             Job Offers
                             <?php
+
+                            $bookmarks = new BookmarkSeeker();
                             $selected_seeker = new SelectedSeeker();
                             $seeker_id = Yii::$app->user->identity->seeker->seeker_id;
-                            $number = $selected_seeker->numberofjoboffered($seeker_id);
+                            $number = $selected_seeker->number_of_new_jobs_offered($seeker_id);
 
                             if($number>0) {
                                 ?>
@@ -56,9 +59,9 @@ use frontend\models\SelectedSeeker;
 
 
                         <div class="panel-body ">
-                            <i class="fa fa-users fa-3x"></i>
+                            <i class="fa fa-briefcase fa-3x"></i>
 
-                            <p>12 </p>
+                            <p><?=$selected_seeker->number_of_jobs_offered($seeker_id)?> </p>
                         </div>
 
 
@@ -70,14 +73,14 @@ use frontend\models\SelectedSeeker;
                 <a href="#" >
            <div class="panel panel-info mypanel  text-center">
                <div class="panel-heading">
-                   Week Views
+                   You Got Bookmarked!
                </div>
 
 
                <div class="panel-body ">
 
                    <i class="fa fa-eye fa-3x"></i>
-                   <p>12 </p>
+                   <p><?=$bookmarks->seeker_bookmarks($seeker_id)->count()?> </p>
                </div>
 
 
@@ -93,14 +96,14 @@ use frontend\models\SelectedSeeker;
                 <a href="#" >
                     <div class="panel panel-info mypanel  text-center">
                         <div class="panel-heading">
-                            Selected!
+                            They Selected You!
                         </div>
 
 
                         <div class="panel-body ">
 
                             <i class="fa fa-business-time fa-3x"></i>
-                            <p>12 </p>
+                            <p><?=$selected_seeker->number_of_job_selections($seeker_id)?> </p>
                         </div>
 
 

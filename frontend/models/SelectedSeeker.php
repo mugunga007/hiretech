@@ -144,12 +144,39 @@ class SelectedSeeker extends \yii\db\ActiveRecord
     ->count();
         return $selectedcandidates;
     }
-
-    public function numberofjoboffered($seeker_id){
+/**
+ * Number of new jobs offered
+ */
+    public function number_of_new_jobs_offered($seeker_id){
         $number = SelectedSeeker::find()
             ->where(['seeker_id'=>$seeker_id,
                 'status'=>'Confirmed'])
         ->count();
+        return $number;
+    }
+
+    /**
+     *
+     * Number of all jobs offered
+     */
+
+    public function number_of_jobs_offered($seeker_id){
+        $number = SelectedSeeker::find()
+            ->where(['seeker_id'=>$seeker_id])
+            ->andWhere(['<>','status','Selected'])
+            ->count();
+        return $number;
+    }
+
+    /**
+     * Number of jobs a seeker is selected in
+     */
+
+    public function number_of_job_selections($seeker_id){
+        $number = SelectedSeeker::find()
+            ->where(['seeker_id'=>$seeker_id,
+                'status'=>'Selected'])
+            ->count();
         return $number;
     }
 

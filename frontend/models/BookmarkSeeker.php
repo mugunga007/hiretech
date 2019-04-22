@@ -77,6 +77,18 @@ class BookmarkSeeker extends \yii\db\ActiveRecord
     }
 
     /**
+     * Getting seeker's bookmarks
+     */
+
+    public function seeker_bookmarks($seeker_id){
+        $bookmarks = BookmarkSeeker::find()
+            ->where(['seeker_id'=>$seeker_id]);
+
+
+        return $bookmarks;
+    }
+
+    /**
      *
      * Check if bookmarked
      */

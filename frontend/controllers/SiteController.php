@@ -99,6 +99,8 @@ class SiteController extends Controller
             if ($userlog->role == 'seeker') {
 
                 $seeker_id = Yii::$app->user->identity->seeker->seeker_id;
+
+
                 $model = new ActiveDataProvider([
                     'query'=>
                         SelectedSeeker::find()
@@ -107,8 +109,11 @@ class SiteController extends Controller
                     'pagination'=>[
                         'pageSize'=>3,
                     ]
+
                 ]);
 
+
+              //  Yii::$app->runAction('/seeker/seekerdashboard',['model'=>$model]);
 
 
             return $this->render('/seeker/seekerdashboard',['model'=>$model]);
