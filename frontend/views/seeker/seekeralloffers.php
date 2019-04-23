@@ -12,10 +12,10 @@ use yii\widgets\ListView;
 
 <div class="container">
     <div class="row ">
-        <div class="col-md-1" >
+        <div class="col-md-2" >
 
         </div>
-        <div class="col-md-10 " >
+        <div class="col-md-8 " >
 
 
             <?=$this->render('seekerdashlayout')?>
@@ -24,12 +24,12 @@ use yii\widgets\ListView;
             <hr>
         </div>
 
-        <div class="col-md-1">
+        <div class="col-md-2">
         </div>
 
     </div>
 <div class="row">
-    <div class="col-md-8">
+
 
 
     <?php
@@ -41,7 +41,7 @@ use yii\widgets\ListView;
     ])
 
     ?>
-    </div>
+
 </div>
 
 </div>
