@@ -72,7 +72,7 @@ $provider_id = Yii::$app->user->identity->provider->provider_id;
 
 
             <div class="text-center">
-                <button class="btn  mybtnprimary"><i class="far fa-check-circle"> Send offer to Candidates </i></button>
+                <button class="btn  mybtnprimary"><i class="far fa-check-circle"></i> Send offer to Candidates </button>
             </div>
             <?php ActiveForm::end() ?>
         </div>

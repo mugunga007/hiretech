@@ -49,6 +49,16 @@ use yii\helpers\Url;
  //   }
     ?>
 
+            <?php
+            /*
+            $pro = new ProviderJob();
+            $now = date('Y-m-d h:i:s');
+
+            echo $pro->get_time_ago(strtotime("2013-12-01") );
+             echo $now.'<br/>';
+           echo $pro->time_elapsed_string($now);
+            */
+            ?>
 
             <?php
 

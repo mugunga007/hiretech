@@ -13,6 +13,7 @@ use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 use yii\widgets\ListView;
 use yii\widgets\Pjax;
+use yii\helpers\Url;
 
 ?>
 <div class="container">
@@ -38,7 +39,7 @@ use yii\widgets\Pjax;
             echo ListView::widget([
                     'dataProvider'=>$provider_job,
                 'itemView' => '_dashboard_provider_job',
-                'emptyText'=>'No Data'
+                'emptyText'=>' <a href=""><i class="fa fa-briefcase"></i> Start by Create an Offer</a>'
             ])
             ?>
 

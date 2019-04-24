@@ -38,12 +38,13 @@ $bookmark_seeker = new BookmarkSeeker();
                     ],
 
             ['label'=>' My Offers ('.$provider_job->provider_jobs_number($provider_id).')',
-                'url'=>['provider/providerjobgoto',
+                'url'=>['provider/providerjobgoto'],
+                    'template'=>' <a href="{url}"><i class="fa fa-briefcase"></i>  {label} </a>'
 
-                ]],
+                ],
 
 
-            ['label'=>' Search',
+            ['label'=>' Job Seekers',
                 'url'=>['provider/prodashsearch'],
                 'template'=>' <a href="{url}"> <i class="fa fa-search"></i> {label} </a>'
             ],

@@ -35,7 +35,7 @@ use frontend\models\JobType;
 
     <?= $form->field($model, 'description')->textarea() ?>
 
-    <?= $form->field($model, 'salary')->textInput() ?>
+    <?= $form->field($model, 'salary')->textInput(['placeholder'=>'Currency in Rwf']) ?>
 
     <?= $form->field($model, 'work_hours')->textInput() ?>
     <?php
@@ -59,7 +59,7 @@ use frontend\models\JobType;
 
 
     <div class="form-group text-center ">
-        <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn mybtnsuccess']) ?>
+        <?= Html::submitButton(Yii::t('app', 'Create Offer'), ['class' => 'btn mybtnprimary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

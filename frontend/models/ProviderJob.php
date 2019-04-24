@@ -70,12 +70,12 @@ class ProviderJob extends \yii\db\ActiveRecord
         return [
             'provider_job_id' => Yii::t('app', 'Provider Job ID'),
             'provider_id' => Yii::t('app', 'Provider ID'),
-            'job_title' => Yii::t('app', 'Job Title'),
+            'job_title' => Yii::t('app', 'Offer Title'),
             'job_type_id' => Yii::t('app', 'Job Type'),
             'location' => Yii::t('app', 'Location'),
             'description' => Yii::t('app', 'Description'),
-            'salary' => Yii::t('app', 'Salary'),
-            'work_hours' => Yii::t('app', 'Work Hours'),
+            'salary' => Yii::t('app', 'Monthly Salary'),
+            'work_hours' => Yii::t('app', 'Work Hours/Week'),
             'contract_type' => Yii::t('app', 'Contract Type'),
 
         ];
@@ -142,6 +142,8 @@ class ProviderJob extends \yii\db\ActiveRecord
 
     function time_elapsed_string($datetime, $full = false) {
         $now = new DateTime;
+       //$agos = date('Y-m-d H:m:s');
+
         $ago = new DateTime($datetime);
         $diff = $now->diff($ago);
 
@@ -170,8 +172,34 @@ class ProviderJob extends \yii\db\ActiveRecord
     }
 
 
+    /**
+     *
+     */
 
+    function get_time_ago( $time )
+    {
+        $time_difference = time() - $time;
 
+        if( $time_difference < 1 ) { return 'less than 1 second ago'; }
+        $condition = array( 12 * 30 * 24 * 60 * 60 =>  'year',
+            30 * 24 * 60 * 60       =>  'month',
+            24 * 60 * 60            =>  'day',
+            60 * 60                 =>  'hour',
+            60                      =>  'minute',
+            1                       =>  'second'
+        );
+
+        foreach( $condition as $secs => $str )
+        {
+            $d = $time_difference / $secs;
+
+            if( $d >= 1 )
+            {
+                $t = round( $d );
+                return 'about ' . $t . ' ' . $str . ( $t > 1 ? 's' : '' ) . ' ago';
+            }
+        }
+    }
 
    // public function getMy
 

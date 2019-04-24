@@ -42,7 +42,7 @@ use yii\helpers\ArrayHelper;
 
 
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton(Yii::t('app', 'Register'), ['class' => 'btn mybtnprimary text-center']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

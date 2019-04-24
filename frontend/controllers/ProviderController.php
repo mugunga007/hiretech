@@ -669,6 +669,9 @@ class ProviderController extends Controller
         $todayString = $today->format('Y-m-d H:i:s');
 
         $provider_job_id = $selected->provider_job_id;
+
+
+
         $provider_job = ProviderJob::findOne(['provider_job_id'=>$provider_job_id]);
 
         SelectedSeeker::updateAll([
@@ -886,7 +889,7 @@ class ProviderController extends Controller
             if($pjob->validate()) {
                 $pjob->save();
                 Yii::$app->getSession()->setFlash('success',
-                    'Offer Saved Successfully',
+                    'Your new Offer <b>"'.$pjob->job_title.'"</b> is Created Successfully',
                     'true'
 
 
@@ -909,7 +912,7 @@ class ProviderController extends Controller
         $provider_job = ProviderJob::findOne(['provider_job_id'=>$provider_job_id]);
         if($provider_job->delete()) {
             Yii::$app->getSession()->setFlash('success',
-                'Offer Entitled "<b>'.$provider_job->job_title.'</b>" Deleted Successfully <b><i class="far fa-check-circle"></i></b>');
+                'Offer Entitled "<b>'.$provider_job->job_title.'</b>" Was Deleted Successfully <b><i class="far fa-check-circle"></i></b>');
         }
         return $this->redirect(Yii::$app->request->referrer);
     }

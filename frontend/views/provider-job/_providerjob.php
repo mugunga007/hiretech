@@ -61,7 +61,7 @@ $provider_job_id = $model->provider_job_id;
                 if($candidates == 0) {
                     $case = 1;
                     $btn = 'Add Candidates';
-                    $status = 'No Candidates Selected';
+                    $status = 'No Candidates Yet';
                 } elseif($candidates > 0 && ($sn <3)) {
                     $case = 2;
                     $status = 'Your Confirmation pending...';
@@ -156,7 +156,14 @@ $provider_job_id = $model->provider_job_id;
     <?php
     Modal::end();
     ?>
-    <a  href="#" class="linktext "><i class="fa fa-clock"></i> <small><em>Added: <b><?=$provider_job->time_elapsed_string($model->date)?></b></em></small></a>
+    <a  href="#" class="linktext "><i class="fa fa-clock"></i> <small><em>Added: <b><?=$provider_job->time_elapsed_string($model->date)?></b>
+                <b><?php
+                  //  $md = $model->date;
+                 //   $t = date('Y-m-d g:i:s');
+                   // $mda = new DateTime($md);
+                 //  echo $provider_job->get_time_ago(strtotime($md));
+                    ?></b>
+            </em></small></a>
 
 
 </div>
