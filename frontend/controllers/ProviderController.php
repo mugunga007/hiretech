@@ -688,23 +688,15 @@ class ProviderController extends Controller
 //////////////////////////////////////////////////
 
         $provider_id = Yii::$app->user->identity->provider->provider_id;
-        $providerjoblist = ProviderJob::find()->where(['provider_id'=>$provider_id])->all();
-
-
-        $model = new ProviderJob();
-
-        $dataProvider = new ActiveDataProvider([
-            'query'=> ProviderJob::find()
+        $provider_job = new ActiveDataProvider([
+            'query' => ProviderJob::find()
                 ->where(['provider_id'=>$provider_id])
-                ->orderBy([
-                    'date'=>SORT_DESC,
-                ]),
-
-
-            'pagination'=>[
-                'pageSize'=>6
-            ]
+                ->andWhere(['>=','status',3])
         ]);
+
+
+
+
 
 
         Yii::$app->getSession()->setFlash('success',
@@ -713,14 +705,10 @@ class ProviderController extends Controller
 
 
         );
-        return  $this->render(
-            'projobview',
-            //'../provider-job/_providerjob',
+        return $this->render('providerdashboard',
             [
-                'dataProvider'=>$dataProvider,
-                'model'=>$model,
-                //  'searchModel'=>$searchModel,
-                'providerjoblist'=>$providerjoblist
+                'provider_job'=>$provider_job,
+
             ]);
 
      //   return $this->redirect(Yii::$app->request->referrer);
