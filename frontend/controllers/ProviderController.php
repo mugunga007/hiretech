@@ -684,6 +684,8 @@ class ProviderController extends Controller
                 'status'=>'Selected']);
 
         $provider_job->status = 3;
+        $date_time = new DateTime();
+        $provider_job->last_edit = $date_time->format('Y-m-d H:i:s');
         $provider_job->save();
 //////////////////////////////////////////////////
 
@@ -727,6 +729,10 @@ class ProviderController extends Controller
         'query' => ProviderJob::find()
         ->where(['provider_id'=>$provider_id])
         ->andWhere(['>=','status',3])
+            ->orderBy([
+                'last_edit'=>SORT_DESC,
+                ])
+
     ]);
 
 

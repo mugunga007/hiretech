@@ -34,7 +34,7 @@ $provider_id = Yii::$app->user->identity->provider->provider_id;
         <div class="col-md-2">
         </div>
         <div class="col-md-8">
-            <div class="well well-sm titlecolor"><i class="far fa-tasks"></i> Confirm the list of candidates you've chosen </div>
+            <div class="well well-sm titlecolor"><i class="fa fa-clipboard-check"></i> Confirm the list of candidates you've chosen </div>
 
             <div class="animated shake">
             <a class="btn mybtnsuccess"
