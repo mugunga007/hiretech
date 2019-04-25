@@ -29,7 +29,7 @@ use frontend\models\ProviderJob;
             <a href="<?=Url::to(['provider/providerjobgoto'])?>"><i class="fa fa-user-alt"></i> My Profile </a>
         </li>
         <li>
-            <a href="<?=Url::to(['provider/prodashsearch'])?>"><i class="fa fa-briefcase"></i> My Jobs (2) </a>
+            <a href="<?=Url::to(['provider/prodashsearch'])?>"><i class="fa fa-briefcase"></i> My Jobs  </a>
         </li>
 
 

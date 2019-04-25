@@ -124,7 +124,7 @@ use frontend\models\BookmarkSeeker;
 
 
 
-<h4><i class="far fa-list-ol text-success"></i> List of Jobs offered</h4>
+<h4><i class="fa fa-briefcase text-success"></i> List of Jobs offered</h4>
 <?php
 echo ListView::widget([
         'dataProvider'=>$model,

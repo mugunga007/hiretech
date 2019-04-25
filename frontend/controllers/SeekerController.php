@@ -334,15 +334,28 @@ public function actionSearchseekerss()
     */
 
     public function actionSeekerprofile(){
+        /*
         $model = Seeker::findOne(['email'=>Yii::$app->user->identity->username]);
         $seekerjobtypes = Yii::$app->user->identity->seeker->seekerJobTypes;
-        /*
-        $model = new ActiveDataProvider([
-           'query'=> Seeker::findOne(['email'=>Yii::$app->user->identity->username]),
-
-       ]);
         */
-        return $this->render('seekerprofile',['model'=>$model,'seekerjobtypes'=>$seekerjobtypes]);
+        $seeker_id = Yii::$app->user->identity->seeker->seeker_id;
+        $model = new ActiveDataProvider([
+            'query'=>
+                SelectedSeeker::find()
+                    ->where(['seeker_id'=>$seeker_id])
+                    ->andWhere(['status'=>'Confirmed']),
+            'pagination'=>[
+                'pageSize'=>3,
+            ]
+        ]);
+        Yii::$app->getSession()->setFlash('success',
+            'Your Profile have been created Successfully <b><i class="far fa-check-circle"></i></b>');
+
+        return $this->render('seekerdashboard',
+            ['model'=>$model]
+        );
+
+      //  return $this->render('seekerprofile',['model'=>$model,'seekerjobtypes'=>$seekerjobtypes]);
     }
 
     /**
