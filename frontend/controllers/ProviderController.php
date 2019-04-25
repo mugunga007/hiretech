@@ -683,36 +683,47 @@ class ProviderController extends Controller
                 'provider_job_id'=>$selected->provider_job_id,
                 'status'=>'Selected']);
 
-        /*
-        $selected_list = SelectedSeeker::find()
-            ->where(['provider_id'=>$selected->provider_id])
-            ->andWhere(['provider_job_id'=>$provider_job_id])
-            ->andWhere(['status'=>'Selected']);
-        $selected_list->status = 'Confirmed';
-        $selected_list->message = $selected->message;
-        $selected_list->confirmation_time = new DateTime();
-        $selected_list->save();
-*/
-
-        /*
-        $myupdate = 'update selected_seeker set status="Confirmed"
-        ,message="'.$selected->message.'"
-       ,confirmation_time="'.$selected->confirmation_time.'"
-         where provider_id="'.$selected->provider_id.'"
-           and provider_job_id="'.$selected->provider_job_id.'"
-          and status="Selected"';
-        \Yii::$app->db->createCommand($myupdate)->execute();
-
-
-
-        /*
-        /**
-         * Update Provider_job table status to 3
-        */
         $provider_job->status = 3;
         $provider_job->save();
+//////////////////////////////////////////////////
 
-        return $this->redirect(Yii::$app->request->referrer);
+        $provider_id = Yii::$app->user->identity->provider->provider_id;
+        $providerjoblist = ProviderJob::find()->where(['provider_id'=>$provider_id])->all();
+
+
+        $model = new ProviderJob();
+
+        $dataProvider = new ActiveDataProvider([
+            'query'=> ProviderJob::find()
+                ->where(['provider_id'=>$provider_id])
+                ->orderBy([
+                    'date'=>SORT_DESC,
+                ]),
+
+
+            'pagination'=>[
+                'pageSize'=>6
+            ]
+        ]);
+
+
+        Yii::$app->getSession()->setFlash('success',
+            '<b>The Candidates Were Notified Successfully, You will be Notified about their Feedbacks! </b>',
+            'true'
+
+
+        );
+        return  $this->render(
+            'projobview',
+            //'../provider-job/_providerjob',
+            [
+                'dataProvider'=>$dataProvider,
+                'model'=>$model,
+                //  'searchModel'=>$searchModel,
+                'providerjoblist'=>$providerjoblist
+            ]);
+
+     //   return $this->redirect(Yii::$app->request->referrer);
 
     }
 
@@ -761,7 +772,7 @@ class ProviderController extends Controller
 
 
 
-        // dataProvider for the list view
+
 
         $dataProvider = new ActiveDataProvider([
             'query'=> ProviderJob::find()
