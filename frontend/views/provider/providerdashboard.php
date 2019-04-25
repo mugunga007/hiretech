@@ -39,7 +39,7 @@ use yii\helpers\Url;
             echo ListView::widget([
                     'dataProvider'=>$provider_job,
                 'itemView' => '_dashboard_provider_job',
-                'emptyText'=>' <a href=""><i class="fa fa-briefcase"></i> Start by Create an Offer</a>'
+                'emptyText'=>' <a href="'.Url::to('providerjobs').'"><i class="fa fa-briefcase"></i> Start by Create an Offer</a>'
             ])
             ?>
 
