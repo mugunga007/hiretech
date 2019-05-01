@@ -51,7 +51,7 @@ $job_type = JobType::findOne(['job_type_id'=>$provider_job->job_type_id]);
                                         data-dismiss="modal"><i class="far fa-window-close"></i>
                                         Cancel</a>
                                         
-                                         <a href="'.Url::to(['seekerdenyoffer','selected_seeker_id'=>$model->selected_seeker_id]).'" class="btn btn-success" 
+                                         <a href="'.Url::to(['seeker/seekerdenyoffer','selected_seeker_id'=>$model->selected_seeker_id]).'" class="btn btn-success" 
                                          >
                                         <i class="far fa-check-circle"></i>
                                         Ok</a>'
@@ -80,7 +80,7 @@ $job_type = JobType::findOne(['job_type_id'=>$provider_job->job_type_id]);
                                         data-dismiss="modal"><i class="far fa-window-close"></i>
                                         Cancel</a>
                                         
-                                         <a href="'.Url::to(['seekeracceptoffer','selected_seeker_id'=>$model->selected_seeker_id]).'" class="btn btn-success">
+                                         <a href="'.Url::to(['seeker/seekeracceptoffer','selected_seeker_id'=>$model->selected_seeker_id]).'" class="btn btn-success">
                                         <i class="far fa-check-circle"></i>
                                         Ok</a>'
 
