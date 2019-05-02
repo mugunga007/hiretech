@@ -13,24 +13,47 @@ use yii\bootstrap\ActiveForm;
 use yii\helpers\Url;
 use frontend\models\SelectedSeeker;
 use frontend\models\ProviderJob;
-
+use yii\widgets\Menu;
 ?>
 <?php
 
 ?>
+<div class="row">
+    <div class="col-md-1">
+    </div>
 
+    <div class="col-md-10">
 <div class="navpil " >
     <ul class="nav nav-justified">
-        <li class="myactive ">
-            <a href="<?=Url::to(['seeker/seekerdashboard'])?>"><i class="fa fa-home "></i> Dashboard  </a>
-        </li>
 
-        <li>
-            <a href="<?=Url::to(['provider/providerjobgoto'])?>"><i class="fa fa-user-alt"></i> My Profile </a>
-        </li>
-        <li>
-            <a href="<?=Url::to(['provider/prodashsearch'])?>"><i class="fa fa-briefcase"></i> My Jobs  </a>
-        </li>
+        <?php
+        echo Menu::widget([
+            'items'=>[
+                ['label'=>'Dashboard',
+                    'url'=>['seeker/seekerdashboard'],
+                    'template'=>' <a href="{url}"> <i class="fa fa-tachometer-alt"></i> {label} </a>'
+                ],
+
+                ['label'=>'My Profile',
+                    'url'=>['seeker/myprofile'],
+                    'template'=>' <a href="{url}"> <i class="fa fa-user-alt"></i> {label} </a>'
+                ],
+
+                ['label'=>'My Jobs',
+                    'url'=>['seeker/seekeroffers'],
+                    'template'=>' <a href="{url}"> <i class="fa fa-briefcase"></i> {label} </a>'
+                ],
+],
+            'activeCssClass'=>'myactive',
+          'options' => [
+            'class' => 'nav nav-justified',
+
+            'style'=>'font-size: 14px;',
+            'data-tag'=>'yii2-menu',
+              ]
+
+        ]);
+        ?>
 
 
 
@@ -38,4 +61,9 @@ use frontend\models\ProviderJob;
 
     </ul>
 </div>
+    </div>
+    <div class="col-md-1">
+    </div>
+</div>
+<hr>
 

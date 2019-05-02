@@ -11,23 +11,12 @@ use yii\widgets\ListView;
 ?>
 
 <div class="container">
-    <div class="row ">
-        <div class="col-md-2" >
-
-        </div>
-        <div class="col-md-8 " >
 
 
             <?=$this->render('seekerdashlayout')?>
 
 
-            <hr>
-        </div>
 
-        <div class="col-md-2">
-        </div>
-
-    </div>
 <div class="row">
 
 
@@ -35,8 +24,8 @@ use yii\widgets\ListView;
     <?php
     echo ListView::widget([
         'dataProvider'=>$model,
-        'itemView'=>'seekeroffer',
-        'emptyText'=>'No new offers!'
+        'itemView'=>'_seekeroffers',
+        'emptyText'=>'No Offers Yet!'
 
     ])
 

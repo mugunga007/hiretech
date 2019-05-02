@@ -14,23 +14,12 @@ use frontend\models\BookmarkSeeker;
 
 <div class="container-fluid">
 
-    <div class="row ">
-        <div class="col-md-1" >
-
-        </div>
-        <div class="col-md-10 " >
 
 
 <?=$this->render('seekerdashlayout')?>
 
 
-        <hr>
-</div>
 
-    <div class="col-md-1">
-    </div>
-
-    </div>
 
     <div class="row">
         <div class="col-md-2">
@@ -124,7 +113,7 @@ use frontend\models\BookmarkSeeker;
 
 
 
-<h4><i class="fa fa-briefcase text-success"></i> List of Jobs offered</h4>
+<h4><i class="fa fa-briefcase text-success"></i> List of New Jobs offered</h4>
 <?php
 echo ListView::widget([
         'dataProvider'=>$model,

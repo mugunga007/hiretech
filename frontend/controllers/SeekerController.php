@@ -21,6 +21,7 @@ use DateTime;
 use yii\filters\AccessControl;
 
 
+
 /**
  * SeekerController implements the CRUD actions for Seeker model.
  */
@@ -348,6 +349,7 @@ public function actionSearchseekerss()
                 'pageSize'=>3,
             ]
         ]);
+
         Yii::$app->getSession()->setFlash('success',
             'Your Profile have been created Successfully <b><i class="far fa-check-circle"></i></b>');
 
@@ -357,6 +359,23 @@ public function actionSearchseekerss()
 
       //  return $this->render('seekerprofile',['model'=>$model,'seekerjobtypes'=>$seekerjobtypes]);
     }
+
+    /**
+     * Seeker View Profile
+     */
+
+    public function actionMyprofile(){
+       $seeker_id = Yii::$app->user->identity->seeker->seeker_id;
+
+       $model = Seeker::findOne(['seeker_id'=>$seeker_id]);
+
+       $seeker_job_types = new SeekerJobType();
+       return $this->render('seekerprofile',[
+           'model'=>$model,
+          // 'seekerjobtypes'=>$seeker_job_types
+       ]);
+    }
+
 
     /**
      *
@@ -406,10 +425,13 @@ public function actionSearchseekerss()
                 'pageSize'=>3,
             ]
         ]);
+       /*
         return $this->render('seekerdashboard',[
             'model'=>$model
         ]);
+        */
 
+       return $this->redirect(Yii::$app->request->referrer);
 
 
     }
@@ -437,9 +459,13 @@ public function actionSearchseekerss()
                 'pageSize'=>3,
             ]
         ]);
+        /*
         return $this->render('seekerdashboard',[
             'model'=>$model
         ]);
+        */
+
+        return $this->redirect(Yii::$app->request->referrer);
 
 
     }
@@ -468,7 +494,7 @@ public function actionSearchseekerss()
             'query'=>
                 SelectedSeeker::find()
                     ->where(['seeker_id'=>$seeker_id])
-                    ->andWhere(['status'=>'Confirmed']),
+                    ->andWhere(['<>','status','Selected']),
             'pagination'=>[
                 'pageSize'=>3,
             ]

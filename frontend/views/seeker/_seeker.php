@@ -41,7 +41,6 @@ use frontend\models\JobType;
         //Get the difference in years, as we are looking for the user's age.
         $age = $difference->y;
 
-
       $providerid = Yii::$app->user->identity->provider->provider_id;
 
         $selected = new SelectedSeeker();
