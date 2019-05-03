@@ -377,6 +377,7 @@ public function actionSearchseekerss()
     }
 
 
+
     /**
      *
      * Seeker layout
@@ -502,6 +503,16 @@ public function actionSearchseekerss()
         return $this->render('seekeralloffers',
             ['model'=>$model]
         );
+    }
+
+    /**
+     * Edit Seeker Profile
+     */
+
+    public function actionEditseeker($seeker_id){
+        $model = Seeker::findOne(['seeker_id'=>$seeker_id]);
+        return $this->render('edit_seeker',
+            ['model'=>$model]);
     }
 
     /**
