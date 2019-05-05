@@ -14,6 +14,7 @@ use yii\helpers\Html;
         <?=$this->render('seekerdashlayout')?>
 
 
+
 <div class="row">
     <div class="col-md-2">
     </div>
@@ -68,13 +69,16 @@ use yii\helpers\Html;
                    <?php
                }
                ?>
-               <a href="<?=Url::to('editseekerjobs')?>" class=" text-center"> <i class="fa fa-briefcase"></i> Edit Your Skills</a>
+               <a href="<?=Url::to('updatejobtypes')?>" class=" text-center"> <i class="fa fa-briefcase"></i> Edit Your Skills</a>
 
            </h5>
            <h5><i class="fa fa-user-graduate"></i> <b>Experience:</b> <?=$model->experience?> </h5>
 
-            <a href="<?=Url::to(['editseeker',
-                'seeker_id'=>Yii::$app->user->identity->seeker->seeker_id])?>"
+            <a href="<?=Url::to(['myupdate',
+
+                'seeker_id'=>Yii::$app->user->identity->seeker->seeker_id
+            ])
+            ?>"
                class="btn mybtnprimary text-center"> <i class="fa fa-user-edit"></i> Edit Profile Info</a>
 
 </div>

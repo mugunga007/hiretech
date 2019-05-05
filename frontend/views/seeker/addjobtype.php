@@ -18,7 +18,7 @@ use yii\helpers\Html;
 
 
 ?>
-<div class="container">
+
     <div class="well well-sm text-center"> Step 1-2: Add Job Skills </div>
     <div class="row">
         <div class="col-md-2">
@@ -57,7 +57,7 @@ use yii\helpers\Html;
                     foreach ($job as $jobtype) {
                         ?>
                         <a type="button" href="<?=Url::to(['seeker/addjobtype','seekerid'=>Yii::$app->user->identity->seeker->seeker_id,'jobtypeid'=>$jobtype->job_type_id])?>" class="btn btn-primary"> <i
-                                    class="fa fa-plus"> <?=$jobtype->title ?></i> </a>
+                                    class="fa fa-plus"></i> <?=$jobtype->title ?> </a>
                         <?php
                     }
                     ?>
@@ -70,4 +70,4 @@ use yii\helpers\Html;
         </div>
 
 </div>
-</div>
+

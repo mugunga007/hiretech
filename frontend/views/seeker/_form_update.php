@@ -15,14 +15,17 @@ use kartik\date\DatePicker;
 
 
     <div class="well well-sm text-center titlecolor"> Edit Profile Info </div>
-    <?php $form = ActiveForm::begin(['options'=>['enctype'=>'multipart/form-data']]); ?>
+    <?php $form = ActiveForm::begin([
 
+    ]); ?>
+
+   
     <?= $form->field($model, 'firstname')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'lastname')->textInput(['maxlength' => true]) ?>
 
 
-    <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
+
 
 
     <?= $form->field($model, 'dob')->label('Date of Birth')->widget(DatePicker::className([
@@ -56,7 +59,7 @@ use kartik\date\DatePicker;
 
 
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('app', 'Register'), ['class' => 'btn mybtnprimary']) ?>
+        <?= Html::submitButton(Yii::t('app', 'Update'), ['class' => 'btn mybtnprimary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

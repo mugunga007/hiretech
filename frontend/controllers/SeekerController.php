@@ -4,6 +4,7 @@ namespace frontend\controllers;
 
 use frontend\models\JobType;
 use frontend\models\SeekerSearchForm;
+use frontend\models\SeekerUpdateForm;
 use frontend\models\SelectedSeeker;
 use Yii;
 use frontend\models\Seeker;
@@ -19,6 +20,7 @@ use yii\web\UploadedFile;
 use frontend\models\SeekerJobType;
 use DateTime;
 use yii\filters\AccessControl;
+use yii\db\Exception;
 
 
 
@@ -92,6 +94,27 @@ class SeekerController extends Controller
             ])->all();
 
         return $this->render('addjobtype',['seekerjobtypes'=>$seekerjobtypes,'job'=>$job]);
+    }
+
+    /**
+     * Update Jobtypes
+     */
+
+    public function actionUpdatejobtypes(){
+
+        $seekerjobtypes = Yii::$app->user->identity->seeker->seekerJobTypes;
+        // $seekerjobtypes = SeekerJobType::findAll(['seeker_id'=>Yii::$app->user->identity->seeker->seeker_id]);
+
+        $job =JobType::find()
+            ->where(['not in','job_type_id',
+                ( new Query())
+                    ->select(['job_type_id'])
+                    ->from('seeker_job_type')
+                    ->where(['seeker_id'=>Yii::$app->user->identity->seeker->seeker_id])
+
+            ])->all();
+
+        return $this->render('updatejobtypes',['seekerjobtypes'=>$seekerjobtypes,'job'=>$job]);
     }
 
     /**
@@ -193,6 +216,8 @@ class SeekerController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
+
+    /*
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
@@ -205,8 +230,31 @@ class SeekerController extends Controller
             'model' => $model,
         ]);
     }
+    */
 
+    /**
+     * * @param integer $id
+     * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
+     *
+     */
 
+    public function actionMyupdate($seeker_id)
+    {
+
+        $model = SeekerUpdateForm::findOne($seeker_id);
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->getSession()->setFlash('success',
+                'Your Profile have been Updated Successfully <b><i class="fa fa-user-check"></i></b>');
+
+            return $this->render('seekerprofile', ['model' => $model]);
+        }
+
+        return $this->render('/seeker/edit_seeker', [
+            'model' => $model,
+        ]);
+    }
 
 
 
@@ -505,15 +553,6 @@ public function actionSearchseekerss()
         );
     }
 
-    /**
-     * Edit Seeker Profile
-     */
-
-    public function actionEditseeker($seeker_id){
-        $model = Seeker::findOne(['seeker_id'=>$seeker_id]);
-        return $this->render('edit_seeker',
-            ['model'=>$model]);
-    }
 
     /**
      * Finds the Seeker model based on its primary key value.
