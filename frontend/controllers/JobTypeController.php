@@ -48,7 +48,7 @@ class JobTypeController extends Controller
      * Lists all JobType models.
      * @return mixed
      */
-
+    /*
     public function actionIndex()
     {
         $searchModel = new JobTypeSearch();
@@ -59,7 +59,7 @@ class JobTypeController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
-
+    */
 
     /**
      * Displays a single JobType model.
