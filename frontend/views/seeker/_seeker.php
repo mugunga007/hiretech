@@ -184,7 +184,7 @@ use frontend\models\JobType;
                 <img src="<?=Url::to(['img/upload/'.$model->picture])?>" class="img-responsive" width="150px">
 
 
-                <h3> <b><?=strtoupper(substr($model->gender,0,1))?>,
+                <h3> <b><?=strtoupper(substr($model->gender,0,1))?>, <?=$age?>
 
                         <?php
                         // date_diff(date_create($dob),date_create($today))->format('%Y')?>

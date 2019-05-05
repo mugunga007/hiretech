@@ -8,10 +8,15 @@
 
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\bootstrap\Modal;
+
 
 ?>
 
 <?=$this->render('seekerdashlayout')?>
+
+
+
 <div class="row">
     <div class="col-md-2">
     </div>
@@ -28,14 +33,31 @@ use yii\helpers\Url;
                 <div class="btn-group">
                     <a type="button" class="btn btn-success"> <?=$types->jobType->title?> <i class="far fa-check-circle "></i></a>
 
-                    <?=Html::a('<i class="fa fa-trash-alt "></i>',['/seeker/deletejob','id'=>$types->id],[
-                        'class'=>'btn btn-danger',
-                        'title'=>'Remove this job',
-                        'data'=>[
-                            'confirm'=>'Are you sure you want to remove this job type?',
-                            'method'=>'post'
-                        ]
-                    ])?>
+
+
+                    <?php
+                    Modal::begin([
+
+                        'header' => '<h4> Remove Skill</h4>',
+                        'toggleButton' => ['label' =>'<i class="far fa-trash-alt"> </i>  ','class'=>'btn btn-danger'],
+                        'footer'=> '<a href="" class="btn btn-danger"
+                                        data-dismiss="modal"><i class="far fa-window-close"></i>
+                                        Cancel</a>
+                                        
+                                         <a href="'.Url::to(['/seeker/deletejob','id'=>$types->id]).'" class="btn btn-success">
+                                        <i class="far fa-check-circle"></i>
+                                        Ok</a>'
+
+                    ]);
+
+
+                    ?>
+                    <p>Are you sure you want to Remove this from your skills?</p>
+
+
+                    <?php
+                    Modal::end();
+                    ?>
                 </div>
                 <br/>
                 <br/>
@@ -49,7 +71,8 @@ use yii\helpers\Url;
             <?php
             foreach ($job as $jobtype) {
                 ?>
-                <a type="button" href="<?=Url::to(['seeker/addjobtype','seekerid'=>Yii::$app->user->identity->seeker->seeker_id,'jobtypeid'=>$jobtype->job_type_id])?>" class="btn btn-primary"> <i
+                <a type="button" href="<?=Url::to(['seeker/updatejobtypessubmit','seekerid'=>Yii::$app->user->identity->seeker->seeker_id,'jobtypeid'=>$jobtype->job_type_id])?>"
+                   class="btn btn-primary somespace"> <i
                         class="fa fa-plus"></i> <?=$jobtype->title ?> </a>
                 <?php
             }

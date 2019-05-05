@@ -125,7 +125,7 @@ class SeekerController extends Controller
 
         $this->findSeekerJobTypeModel($id)->delete();
 
-            return $this->redirect('editjobtypes');
+            return $this->redirect(Yii::$app->request->referrer);
 
     }
 
@@ -553,7 +553,21 @@ public function actionSearchseekerss()
         );
     }
 
+    /**
+     *
+     * Update job type to seeker's job types
+     */
 
+    public function actionUpdatejobtypessubmit($jobtypeid,$seekerid){
+        $job = JobType::find()->all();
+        $seekerjobtypes = Yii::$app->user->identity->seeker->seekerJobTypes;
+        $seekerjobtype = new SeekerJobType();
+        $seekerjobtype->seeker_id = $seekerid;
+        $seekerjobtype->job_type_id = $jobtypeid;
+        $seekerjobtype->save();
+            return $this->redirect(Yii::$app->request->referrer);
+
+    }
     /**
      * Finds the Seeker model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
