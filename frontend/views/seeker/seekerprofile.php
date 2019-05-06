@@ -53,7 +53,6 @@ use yii\bootstrap\Modal;
 
            <img src="<?=Url::to(['img/upload/'.$model->picture])?>" class="img-responsive" width="150px">
 
-            <a href="<?=Url::to(['updatepicture'])?>">Edit </a>
             <?php Modal::begin([
                     'header'=>'<h3 class="text-center">Upload New Picture</h3>',
                     'toggleButton'=>[
@@ -68,8 +67,7 @@ use yii\bootstrap\Modal;
 
                 'options'=>['enctype'=>'multipart/form-data']]); ?>
 
-            <?= $form->field($model, 'picture')->fileInput() ?>
-
+            <?= $form->field($modelupdate, 'picture')->fileInput() ?>
 
 
             <div class="form-group">

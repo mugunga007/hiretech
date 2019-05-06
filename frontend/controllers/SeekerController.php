@@ -265,7 +265,12 @@ class SeekerController extends Controller
 
     public function actionUpdatepicture()
     {
+
         $seeker_id = Yii::$app->user->identity->seeker->seeker_id;
+        // modelupdate to load form in the modal
+        $modelupdate = new SeekerUpdateForm();
+
+        // model to get user's email to rename the uploaded file
         $model = SeekerUpdateForm::findOne($seeker_id);
        if ($model->load(Yii::$app->request->post())) {
            $picture = UploadedFile::getInstance($model, 'picture');
@@ -275,7 +280,8 @@ class SeekerController extends Controller
                Yii::$app->getSession()->setFlash('success',
                    'Your Picture have been Updated Successfully, It will be Changed in a while <b><i class="fa fa-user-check"></i></b>');
 
-               return $this->render('seekerprofile', ['model' => $model]);
+               return $this->render('seekerprofile', ['model' => $model,
+                   'modelupdate'=>$modelupdate]);
 
        }else
 
@@ -439,12 +445,13 @@ public function actionSearchseekerss()
 
     public function actionMyprofile(){
        $seeker_id = Yii::$app->user->identity->seeker->seeker_id;
-
+        $modelupdate = SeekerUpdateForm::findOne($seeker_id);
        $model = Seeker::findOne(['seeker_id'=>$seeker_id]);
 
        $seeker_job_types = new SeekerJobType();
        return $this->render('seekerprofile',[
            'model'=>$model,
+          'modelupdate'=>$modelupdate
           // 'seekerjobtypes'=>$seeker_job_types
        ]);
     }
