@@ -27,7 +27,6 @@ use yii\helpers\Html;
         <?= $form->field($model, 'picture')->fileInput() ?>
 
 
-
         <div class="form-group">
             <?= Html::submitButton(Yii::t('app', 'Upload'), ['class' => 'btn mybtnprimary']) ?>
         </div>

@@ -57,7 +57,10 @@ use yii\bootstrap\Modal;
                     'header'=>'<h3 class="text-center">Upload New Picture</h3>',
                     'toggleButton'=>[
                             'tag'=>'a',
+
+
                             'label'=>'<i class="fa fa-image"></i> Edit Image',
+                        'class'=>'btn btn-link somespace'
                         ]
                 ])
                 ?>
