@@ -8,6 +8,8 @@
 
 use yii\helpers\Url;
 use yii\helpers\Html;
+use yii\widgets\ActiveForm;
+use yii\bootstrap\Modal;
 ?>
 
 
@@ -50,7 +52,39 @@ use yii\helpers\Html;
         <div class="col-sm-4 ">
 
            <img src="<?=Url::to(['img/upload/'.$model->picture])?>" class="img-responsive" width="150px">
-            <p><a href=""><i class="fa fa-image"></i> Edit Image</a></p>
+
+            <a href="<?=Url::to(['updatepicture'])?>">Edit </a>
+            <?php Modal::begin([
+                    'header'=>'<h3 class="text-center">Upload New Picture</h3>',
+                    'toggleButton'=>[
+                            'tag'=>'a',
+                            'label'=>'<i class="fa fa-image"></i> Edit Image',
+                        ]
+                ])
+                ?>
+
+            <?php $form = ActiveForm::begin([
+                'action'=>'updatepicture',
+
+                'options'=>['enctype'=>'multipart/form-data']]); ?>
+
+            <?= $form->field($model, 'picture')->fileInput() ?>
+
+
+
+            <div class="form-group">
+                <?= Html::submitButton(Yii::t('app', 'Upload'), ['class' => 'btn mybtnprimary']) ?>
+            </div>
+            <?php ActiveForm::end(); ?>
+
+
+            <?php
+            Modal::end();
+            ?>
+
+
+
+
         </div>
 
         <div class="col-md-8">

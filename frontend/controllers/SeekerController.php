@@ -256,6 +256,31 @@ class SeekerController extends Controller
         ]);
     }
 
+    /**
+     * * @param integer $id
+     * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
+     *
+     */
+
+    public function actionUpdatepicture()
+    {
+        $seeker_id = Yii::$app->user->identity->seeker->seeker_id;
+        $model = SeekerUpdateForm::findOne($seeker_id);
+       if ($model->load(Yii::$app->request->post())) {
+           $picture = UploadedFile::getInstance($model, 'picture');
+           $picture->saveAs('img/upload/' . $model->email . 'pic.' . $picture->extension);
+           $model->picture = $model->email . 'pic.' . $picture->extension;
+           $model->save();
+               Yii::$app->getSession()->setFlash('success',
+                   'Your Picture have been Updated Successfully, It will be Changed in a while <b><i class="fa fa-user-check"></i></b>');
+
+               return $this->render('seekerprofile', ['model' => $model]);
+
+       }else
+
+           return $this->render('update_picture', ['model' => $model]);
+    }
 
 
 

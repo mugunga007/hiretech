@@ -45,8 +45,8 @@ class SeekerUpdateForm extends Seeker
     {
         return [
             [['firstname', 'lastname',  'dob', 'gender', 'phone', 'address'], 'required'],
-
-
+            [['picture','seeker_id'], 'safe'],
+            [['picture'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg'],
             [['phone', 'job_type_id', 'views'], 'integer'],
             [['firstname', 'lastname'], 'string', 'max' => 50],
 
@@ -58,6 +58,19 @@ class SeekerUpdateForm extends Seeker
 
         ];
     }
+/*
+    public function upload()
+    {
+        if ($this->validate()) {
+            $this->imageFile->saveAs('uploads/' . $this->imageFile->baseName . '.' . $this->imageFile->extension);
+
+            return true;
+        } else {
+            return false;
+        }
+    }
+*/
+
 
     /**
      * {@inheritdoc}
@@ -69,7 +82,7 @@ class SeekerUpdateForm extends Seeker
             'firstname' => Yii::t('app', 'Firstname'),
             'lastname' => Yii::t('app', 'Lastname'),
 
-
+            'picture'=>Yii::t('app','Edit Picture'),
             'dob' => Yii::t('app', 'Date of birth'),
             'gender' => Yii::t('app', 'Gender'),
             'phone' => Yii::t('app', 'Phone'),
