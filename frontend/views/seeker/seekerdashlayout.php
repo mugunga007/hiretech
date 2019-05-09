@@ -40,7 +40,7 @@ use yii\widgets\Menu;
                 ],
 
                 ['label'=>'My Jobs',
-                    'url'=>['seeker/seekeroffers'],
+                    'url'=>['seeker/seekeralloffers'],
                     'template'=>' <a href="{url}"> <i class="fa fa-briefcase"></i> {label} </a>'
                 ],
 ],

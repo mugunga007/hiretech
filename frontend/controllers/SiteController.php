@@ -256,6 +256,18 @@ class SiteController extends Controller
     }
 
     /**
+     * Logs out the current user.
+     *
+     * @return mixed
+     */
+    public function actionMylogout()
+    {
+       // Yii::$app->user->logout();
+
+
+        return $this->goHome();
+    }
+    /**
      * Displays contact page.
      *
      * @return mixed

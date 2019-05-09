@@ -13,7 +13,7 @@ use common\widgets\Alert;
 use frontend\models\Seeker;
 use yii\helpers\Url;
 
-
+use frontend\models\SeekerNotification;
 
 AppAsset::register($this);
 ?>
@@ -36,6 +36,8 @@ AppAsset::register($this);
 
 
     <?php
+    $seeker_notifications = new SeekerNotification();
+
     NavBar::begin([
         'brandLabel' => 'HireTechs',
             //Yii::$app->name,
@@ -74,13 +76,33 @@ AppAsset::register($this);
         if ($role == 'seeker') {
 
 
+            $seeker = Seeker::findOne(Yii::$app->user->identity->seeker->seeker_id);
 
-            $name = Yii::$app->user->identity->seeker->firstname;
+            $name = $seeker->firstname;
+            $notifications = $seeker_notifications->check_new_notifications($seeker->seeker_id);
+
             $menuItems[] =
                 ['label'=>'<i class="fa fa-tachometer-alt"></i> My Dashboard  </a> </li>',
-                    'url'=>['seeker/seekerdashboard'] ];
+                    'url'=>['seeker/notification'] ];
+                if($notifications->count() > 0) {
+                    $items = [];
+                    foreach ($notifications->all() as $not){
+                        array_push($items,['label'=>
+                            '<b>'.$not->message.'</b> <small>offer</small>',
+                            'url'=>['seeker/notifications']]);
+                    }
+                    $menuItems[] = ['label' => '<i class="fa fa-bell"></i>  <span class="label label-danger">'.$notifications->count().' </span>', 'url' => ['/site/signup'],
+                        'items'=> $items,
+
+
+
+
+                    ];
+                }
+
             $menuItems[] =
-                '<li> <a href="'.Url::to(['seeker/seekerdashboard']).'" class=""><i class="fa fa-bell "></i> <span class="label label-danger">1</span>  </a> </li>'.
+
+
                 '<li>'
                 . Html::beginForm(['/site/logout'], 'post')
                 . Html::submitButton(
@@ -90,6 +112,15 @@ AppAsset::register($this);
                 . Html::endForm()
                 . '</li>'
                 ;
+
+                $menuItems[]=['label'=>'<b>'.$name.'</b>','url'=>['seeker/seekerprofile'],
+                    'items'=>[
+                            ['label'=>'<i class="fa fa-user-cog"></i> My Profile','url'=>['seeker/seekerprofile']],
+                            ['label'=>'<i class="fa fa-sign-out-alt"></i> Sign out','url'=>['site/logout']],
+                           // ['label'=>'<i class="fa fa-sign-out-alt"></i> Sign out','url'=>[''.Yii::app()->createAbsoluteUrl('/site/logout').'']],
+            ]
+
+                ];
         } elseif ($role == 'provider') {
             $name = Yii::$app->user->identity->provider->names;
 
@@ -116,7 +147,7 @@ AppAsset::register($this);
             $menuItems[] = '<li>'
                 . Html::beginForm(['/site/logout'], 'post')
                 . Html::submitButton(
-                    'Logout (' . $name . ')',
+                    '<i class="fa fa-sign-out-alt"></i> Logout <small>(' . $name . ')</small>',
                     ['class' => 'btn btn-link logout']
                 )
                 . Html::endForm()
