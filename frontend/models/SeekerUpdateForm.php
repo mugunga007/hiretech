@@ -52,7 +52,7 @@ class SeekerUpdateForm extends Seeker
 
             [['gender'], 'string', 'max' => 8],
 
-             [['dob'],'date','format'=>'Y-m-d'],
+            // [['dob'],'date','format'=>'Y-m-d'],
             [['address'], 'string', 'max' => 30],
             [['experience'], 'string', 'max' => 250],
 
