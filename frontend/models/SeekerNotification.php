@@ -3,6 +3,7 @@
 namespace frontend\models;
 
 use Yii;
+use frontend\models\Provider;
 
 /**
  * This is the model class for table "seeker_notification".
@@ -12,6 +13,7 @@ use Yii;
  * @property string $message
  * @property string $status
  * @property string type
+ * @property string from_email
  *
  * @property Seeker $seeker
  */
@@ -89,4 +91,6 @@ class SeekerNotification extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Seeker::className(), ['seeker_id' => 'seeker_id']);
     }
+
+
 }

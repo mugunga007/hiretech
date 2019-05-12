@@ -10,7 +10,7 @@ use yii\grid\GridView;
 use yii\widgets\ListView;
 ?>
 
-<div class="container">
+
 
 
             <?=$this->render('seekerdashlayout')?>
@@ -19,7 +19,10 @@ use yii\widgets\ListView;
 
 <div class="row">
 
+<div class="col-md-2">
+</div>
 
+    <div class="col-md-8">
 
     <?php
     echo ListView::widget([
@@ -30,7 +33,11 @@ use yii\widgets\ListView;
     ])
 
     ?>
+    </div>
+
+    <div class="col-md-2">
+    </div>
 
 </div>
 
-</div>
+

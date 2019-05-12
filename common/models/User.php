@@ -198,4 +198,14 @@ class User extends ActiveRecord implements IdentityInterface
         return $this->hasOne(Provider::className(),['email'=>'username']);
     }
 
+    /**
+     * Get provider by email
+     */
+
+    public function getUserByEmail($email){
+       $user = User::findOne(['email'=>$email]);
+        return $user;
+
+    }
+
 }

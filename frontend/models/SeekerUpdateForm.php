@@ -45,14 +45,14 @@ class SeekerUpdateForm extends Seeker
     {
         return [
             [['firstname', 'lastname',  'dob', 'gender', 'phone', 'address'], 'required'],
-            [['picture','seeker_id'], 'safe'],
-            [['picture'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg'],
+           // [['picture','seeker_id'], 'safe'],
+           // [['picture'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg'],
             [['phone', 'job_type_id', 'views'], 'integer'],
             [['firstname', 'lastname'], 'string', 'max' => 50],
 
             [['gender'], 'string', 'max' => 8],
 
-            // [['dob'],'date','format'=>'Y-m-d'],
+             [['dob'],'date','format'=>'Y-m-d'],
             [['address'], 'string', 'max' => 30],
             [['experience'], 'string', 'max' => 250],
 
@@ -82,7 +82,7 @@ class SeekerUpdateForm extends Seeker
             'firstname' => Yii::t('app', 'Firstname'),
             'lastname' => Yii::t('app', 'Lastname'),
 
-            'picture'=>Yii::t('app','Edit Picture'),
+          //  'picture'=>Yii::t('app','Edit Picture'),
             'dob' => Yii::t('app', 'Date of birth'),
             'gender' => Yii::t('app', 'Gender'),
             'phone' => Yii::t('app', 'Phone'),

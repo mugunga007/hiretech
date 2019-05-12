@@ -22,7 +22,7 @@ $job_type = new JobType();
 $job_type = JobType::findOne(['job_type_id'=>$provider_job->job_type_id]);
 
 ?>
-<div class="col-md-4">
+<div class="col-md-6">
     <div class="panel panel-default mine">
         <div class="panel-heading text-center">
             <h3> <i class="fa fa-check-circle text-success"> </i> <?=$job_type->title?>

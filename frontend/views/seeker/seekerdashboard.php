@@ -12,7 +12,7 @@ use frontend\models\BookmarkSeeker;
 ?>
 
 
-<div class="container-fluid">
+
 
 
 
@@ -127,7 +127,7 @@ echo ListView::widget([
 
     </div>
 
-</div>
+
 
 
 <!--   -->

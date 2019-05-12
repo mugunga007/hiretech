@@ -5,6 +5,7 @@ namespace frontend\controllers;
 use frontend\models\JobType;
 use frontend\models\SeekerSearchForm;
 use frontend\models\SeekerUpdateForm;
+use frontend\models\SeekerUpdatePicture;
 use frontend\models\SelectedSeeker;
 use Yii;
 use frontend\models\Seeker;
@@ -21,6 +22,7 @@ use frontend\models\SeekerJobType;
 use DateTime;
 use yii\filters\AccessControl;
 use yii\db\Exception;
+use frontend\models\SeekerNotification;
 
 
 
@@ -242,17 +244,22 @@ class SeekerController extends Controller
     public function actionMyupdate($seeker_id)
     {
 
+       // $seeker_id = Yii::$app->user->identity->seeker->seeker_id;
         $model = SeekerUpdateForm::findOne($seeker_id);
+        $update_picture_model = new SeekerUpdatePicture();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             Yii::$app->getSession()->setFlash('success',
                 'Your Profile have been Updated Successfully <b><i class="fa fa-user-check"></i></b>');
 
-            return $this->render('seekerprofile', ['model' => $model]);
+            return $this->render('seekerprofile', ['model' => $model,
+                'update_picture_model'=>$update_picture_model,]);
         }
 
         return $this->render('/seeker/edit_seeker', [
             'model' => $model,
+            'update_picture_model'=>$update_picture_model,
+            ''
         ]);
     }
 
@@ -268,10 +275,10 @@ class SeekerController extends Controller
 
         $seeker_id = Yii::$app->user->identity->seeker->seeker_id;
         // modelupdate to load form in the modal
-        $modelupdate = new SeekerUpdateForm();
+       // $model = new SeekerUpdatePicture();
 
         // model to get user's email to rename the uploaded file
-        $model = SeekerUpdateForm::findOne($seeker_id);
+        $model = SeekerUpdatePicture::findOne($seeker_id);
        if ($model->load(Yii::$app->request->post())) {
            $picture = UploadedFile::getInstance($model, 'picture');
            $picture->saveAs('img/upload/' . $model->email . 'pic.' . $picture->extension);
@@ -281,7 +288,7 @@ class SeekerController extends Controller
                    'Your Picture have been Updated Successfully, It will be Changed in a while <b><i class="fa fa-user-check"></i></b>');
 
                return $this->render('seekerprofile', ['model' => $model,
-                   'modelupdate'=>$modelupdate]);
+                   'update_picture_model'=>$model]);
 
        }else
 
@@ -446,13 +453,14 @@ public function actionSearchseekerss()
     public function actionMyprofile(){
        $seeker_id = Yii::$app->user->identity->seeker->seeker_id;
         $modelupdate = SeekerUpdateForm::findOne($seeker_id);
+        $update_picture_model = new SeekerUpdatePicture();
        $model = Seeker::findOne(['seeker_id'=>$seeker_id]);
 
        $seeker_job_types = new SeekerJobType();
        return $this->render('seekerprofile',[
            'model'=>$model,
-          'modelupdate'=>$modelupdate
-          // 'seekerjobtypes'=>$seeker_job_types
+          'modelupdate'=>$modelupdate,
+           'update_picture_model'=>$update_picture_model,
        ]);
     }
 
@@ -600,6 +608,29 @@ public function actionSearchseekerss()
             return $this->redirect(Yii::$app->request->referrer);
 
     }
+
+    /**
+     * show notifications page
+     */
+
+    public function actionNotifications(){
+
+        $seeker_id = Yii::$app->user->identity->seeker->seeker_id;
+          $seeker_notification  = new ActiveDataProvider([
+              'query'=> SeekerNotification::find()
+            ->where(['seeker_id'=>$seeker_id])
+
+
+          ]);
+
+          SeekerNotification::updateAll(['status'=>'read'],['status'=>'unread']);
+
+          return $this->render('notifications',[
+              'model'=>$seeker_notification,
+          ]);
+    }
+
+
     /**
      * Finds the Seeker model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.

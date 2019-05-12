@@ -70,7 +70,7 @@ use yii\bootstrap\Modal;
 
                 'options'=>['enctype'=>'multipart/form-data']]); ?>
 
-            <?= $form->field($modelupdate, 'picture')->fileInput() ?>
+            <?= $form->field($update_picture_model, 'picture')->fileInput() ?>
 
 
             <div class="form-group">
