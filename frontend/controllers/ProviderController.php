@@ -4,6 +4,7 @@ namespace frontend\controllers;
 
 use common\models\User;
 use frontend\models\BookmarkSeeker;
+use frontend\models\SeekerNotification;
 use frontend\models\SignupForm;
 use Yii;
 use frontend\models\Provider;
@@ -565,6 +566,7 @@ class ProviderController extends Controller
     }
 
     public function actionConfirmedseeker(){
+
         $providerid = Yii::$app->user->identity->provider->provider_id;
         $selectedlist = new ActiveDataProvider([
 
@@ -590,6 +592,7 @@ class ProviderController extends Controller
 
 
     public function actionConfirmedseekerbyjob($provider_job_id){
+
         $provider_job = ProviderJob::findOne(['provider_job_id'=>$provider_job_id]);
         $job_title = $provider_job->job_title;
         $providerid = Yii::$app->user->identity->provider->provider_id;
@@ -614,6 +617,8 @@ class ProviderController extends Controller
         $providerjob->save();
         //--------------------------------
         $model = new SelectedSeeker();
+
+
 
         return $this->render('confirmedseeker',
             [
@@ -801,6 +806,7 @@ class ProviderController extends Controller
 
     public function actionBookmarkedseekers(){
     $provider_id = Yii::$app->user->identity->provider->provider_id;
+
         $bookmarked = new ActiveDataProvider([
             'query'=>Seeker::find()
             ->join('join','bookmark_seeker','seeker.seeker_id = bookmark_seeker.seeker_id')
@@ -1209,6 +1215,15 @@ class ProviderController extends Controller
             $bookmark_seeker->save();
         }
 
+        //------------ Notify seeker ------------------------------
+        $provider_email = Yii::$app->user->identity->provider->email;
+        $seeker_notification = new SeekerNotification();
+        $seeker_notification->notify_seeker($seeker_id,
+            $seeker_notification->bookmark_message,
+            'Bookmarked',
+            $provider_email);
+
+        //----------------------------------
        // return $this->redirect(Yii::$app->request->referrer);
         return $this->render('prodashsearch', [
             'model' => $model,

@@ -73,7 +73,9 @@ use frontend\models\BookmarkSeeker;
                 ?>
 
                 <a type="button" class="btn btn-danger"
-                   href="<?= Url::to(['provider/unselectseeker', 'seekerid' => $model->seeker_id, 'providerid' => Yii::$app->user->identity->provider->provider_id,'provider_job_id'=>$provider_job_id]) ?>"
+                   href="<?= Url::to(['provider/unselectseeker', 'seekerid' => $model->seeker_id,
+                       'providerid' => Yii::$app->user->identity->provider->provider_id,
+                       'provider_job_id'=>$provider_job_id]) ?>"
                 >
                     Cancel
                     <i class="fa fa-window-close"></i></a>

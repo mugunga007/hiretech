@@ -19,6 +19,8 @@ use frontend\models\Provider;
  */
 class SeekerNotification extends \yii\db\ActiveRecord
 {
+    public $bookmark_message = 'Your Profile Got Saved By an Employer, Good Luck!';
+    public $confirmed_message = 'Congratulations! A New Offer was sent to you! we wish you Good Luck';
     /**
      * {@inheritdoc}
      */
@@ -33,12 +35,12 @@ class SeekerNotification extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [[ 'seeker_id', 'message', 'status','type'], 'required'],
+            [[ 'seeker_id', 'message', 'type'], 'required'],
             [['seeker_notification_id', 'seeker_id'], 'integer'],
-            [['message'], 'string', 'max' => 100],
+            [['message'], 'string', 'max' => 200],
             [['type'], 'string', 'max' => 100],
-            [['status'], 'string', 'max' => 20],
-            [['seeker_notification_id'], 'unique'],
+
+           // [['seeker_notification_id'], 'unique'],
             [['seeker_id'], 'exist', 'skipOnError' => true, 'targetClass' => Seeker::className(), 'targetAttribute' => ['seeker_id' => 'seeker_id']],
         ];
     }
@@ -69,6 +71,23 @@ class SeekerNotification extends \yii\db\ActiveRecord
             array_push($items, ['label' => 'u', 'url' => 'seeker/notifications']);
         }
         return $items;
+    }
+
+    /**
+     * Action create notification
+     */
+
+    public function notify_seeker($seeker_id,$message,$type,$from_email){
+        $seeker_notification = new SeekerNotification();
+        $seeker_notification->seeker_id = $seeker_id;
+        $seeker_notification->message = $message;
+
+        $seeker_notification->type = $type;
+        $seeker_notification->from_email = $from_email;
+        $seeker_notification->save();
+        return true;
+
+
     }
 
     /**

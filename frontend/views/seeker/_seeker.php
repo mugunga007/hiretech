@@ -14,6 +14,7 @@ use frontend\models\SelectedSeeker;
 use frontend\models\BookmarkSeeker;
 use frontend\models\ProviderJob;
 use frontend\models\JobType;
+use frontend\models\SeekerNotification;
 ?>
 
 
@@ -41,6 +42,7 @@ use frontend\models\JobType;
         //Get the difference in years, as we are looking for the user's age.
         $age = $difference->y;
 
+      $provider = Yii::$app->user->identity->provider;
       $providerid = Yii::$app->user->identity->provider->provider_id;
 
         $selected = new SelectedSeeker();
@@ -85,7 +87,8 @@ use frontend\models\JobType;
 
             if($selected->selected($providerid,$model->seeker_id)) {
 
-              $provider_job_id = $selected->provider_job_id;
+              $provider_job_id = $selected->getSelected_seeker($providerid,
+                  $model->seeker_id)->provider_job_id;
 
 
                   ?>
@@ -93,7 +96,8 @@ use frontend\models\JobType;
                 <a type="button" class="btn mybtndanger"
                    href="<?= Url::to(['provider/unselectseeker', 'seekerid' => $model->seeker_id,
                        'providerid' => $providerid,
-                       'provider_job_id'=>$provider_job_id
+                       'provider_job_id'=> $provider_job_id,
+                       'nmb'=>5
                        ]) ?>"
                 >
                     <i class="fa fa-window-close"></i>
@@ -231,6 +235,7 @@ use frontend\models\JobType;
 
                 <?php
             }else {
+
                 ?>
 
                 <a href="<?= Url::to(['provider/bookmarkseeker',

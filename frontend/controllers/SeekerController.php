@@ -619,6 +619,9 @@ public function actionSearchseekerss()
           $seeker_notification  = new ActiveDataProvider([
               'query'=> SeekerNotification::find()
             ->where(['seeker_id'=>$seeker_id])
+                  ->orderBy([
+                      'time'=>SORT_DESC,
+                  ])
 
 
           ]);
@@ -629,6 +632,8 @@ public function actionSearchseekerss()
               'model'=>$seeker_notification,
           ]);
     }
+
+
 
 
     /**

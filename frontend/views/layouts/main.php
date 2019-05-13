@@ -12,8 +12,10 @@ use frontend\assets\AppAsset;
 use common\widgets\Alert;
 use frontend\models\Seeker;
 use yii\helpers\Url;
+use frontend\models\Myfunctions;
 
 use frontend\models\SeekerNotification;
+use frontend\components\SmallBody;
 
 AppAsset::register($this);
 ?>
@@ -74,7 +76,7 @@ AppAsset::register($this);
         $role = Yii::$app->user->identity->role;
         $name = '';
         if ($role == 'seeker') {
-
+            $function = new Myfunctions();
 
             $seeker = Seeker::findOne(Yii::$app->user->identity->seeker->seeker_id);
 
@@ -82,23 +84,28 @@ AppAsset::register($this);
             $notifications = $seeker_notifications->check_new_notifications($seeker->seeker_id);
 
             $menuItems[] =
-                ['label'=>'<i class="fa fa-tachometer-alt"></i> My Dashboard  </a> </li>',
+                ['label'=>'<i class="fa fa-tachometer-alt"></i> My Dashboard   </li>',
                     'url'=>['seeker/seekerdashboard'] ];
+
 
                     $items = [];
                     foreach ($notifications->all() as $not){
                         array_push($items,['label'=>
-                            '<b>'.$not->message.'</b> <small>offer</small>',
+                            '<b>'.SmallBody::widget(['body'=>$not->message]).'</b> <small>'.$function->time_elapsed_string($not->time).'</small>',
                             'url'=>['seeker/notifications']]);
                     }
         //    if($notifications->count() > 0){
-                    $menuItems[] = ['label' => '<i class="fa fa-bell"></i> 
- <span class="label label-danger">'.$notifications->count().' </span>', 'url' => ['/site/signup'],
-                        'items'=> $items,
-
-
-
-                    ];
+            if($notifications->count()>0) {
+                $menuItems[] = ['label' => '<i class="fa fa-bell"></i> 
+ <span class="label label-danger">' . $notifications->count() . ' </span>', 'url' => ['/site/signup'],
+                    'items' => $items,
+                ];
+            }else{
+                $menuItems[] =
+                    ['label'=>'<i class="fa fa-bell"></i> 
+ <span class="label label-default">' . $notifications->count() . ' </span> </li>',
+                        'url'=>['seeker/notifications'] ];
+            }
 // }
 
 

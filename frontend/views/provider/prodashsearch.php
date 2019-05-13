@@ -126,7 +126,6 @@ use yii\helpers\Url;
                     <b>Age:</b>'.$searchresultmodel->min_age.'-'.$searchresultmodel->max_age.'';
 
 
-
             echo ListView::widget([
                 'dataProvider'=>$model,
                 'itemView'=>'/seeker/_seeker',
