@@ -106,12 +106,18 @@ $provider_job_id = $model->provider_job_id;
                 }else{
         ?>
     <div class="text-center">
+
                     <p class="alert alert-success text-center"><b><i class="fa fa-calendar-check"> </i>
 
-                        </b> <em><?=$status?></em> </>
-        <p><a href="<?=Url::to(['provider/confirmedseekerbyjob',
+                        </b> <em><?=$status?></em> </p>
+
+        <a href="<?=Url::to(['provider/confirmedseekerbyjob',
                             'provider_job_id'=>$provider_job_id])?>"
               class="btn btn-primary"> <i class="fa fa-users"> </i> Candidates (<b><?=$candidates?></b>)</a>
+
+
+
+
             <?php
             $provider_job = ProviderJob::findOne(['provider_job_id'=>$provider_job_id]);
             if($provider_job->reopenable($provider_job_id)) {
@@ -120,11 +126,11 @@ $provider_job_id = $model->provider_job_id;
                     'provider_job_id' => $provider_job_id,
 
                     ]) ?>"
-                   class="btn btn-warning"> <i class="fa fa-redo"> </i> Reopen Offer </a>
+                   class="btn btn-warning somespace"> <i class="fa fa-redo"> </i> Reopen Offer </a>
                 <?php
             }
             ?>
-        </p>
+
     </div>
         <?php
         }

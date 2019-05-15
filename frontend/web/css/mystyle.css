@@ -571,14 +571,17 @@ body{
 }
 
 
-    .notifications:hover{
-    box-shadow: 0 4px 5px 0 #d3d3d3;
+    .notifications:hover {
+        box-shadow: 0 4px 5px 0 #d3d3d3;
 
-    transition: 0.3s;
+        transition: 0.3s;
+    }
 
-
-
+.logotop{
+    top:0;
 }
+
+
 
 @media (max-width: 600px){
     p{
