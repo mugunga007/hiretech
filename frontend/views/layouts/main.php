@@ -41,7 +41,7 @@ AppAsset::register($this);
     $seeker_notifications = new SeekerNotification();
 
     NavBar::begin([
-        'brandLabel' => '<img src="../../web/img/HireTechLogo.png" class="logotop"  width="80px" height="80px"/> ',
+        'brandLabel' => ' HireTech',
             //Yii::$app->name,
 
         'brandUrl' => Yii::$app->homeUrl,
