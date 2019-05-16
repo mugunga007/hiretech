@@ -315,7 +315,7 @@ input[type=text]:focus, input[type=password]:focus {
 }
 
 
-/* Sidebar css */
+/*
 
 
  .sidebar {
@@ -328,9 +328,12 @@ input[type=text]:focus, input[type=password]:focus {
 
 
   overflow-x: hidden;
-  /* padding-top: 0px; */
+
 
 }
+  */
+
+
 /*
 .sidebar a {
   padding: 6px 8px 6px 16px;
@@ -577,9 +580,13 @@ body{
         transition: 0.3s;
     }
 
-.logotop{
-    top:0;
+.mybrand {
+
+
+    width: 20px;
+
 }
+
 
 
 

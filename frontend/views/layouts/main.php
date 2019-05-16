@@ -41,12 +41,16 @@ AppAsset::register($this);
     $seeker_notifications = new SeekerNotification();
 
     NavBar::begin([
-        'brandLabel' => ' HireTech',
-            //Yii::$app->name,
+        'brandLabel' => Html::img('@web/img/HireTechLogo1.png',
+            ['alt'=>Yii::$app->name,
+                'class' => '','width'=>'50px']),
+
+
+        //Yii::$app->name,
 
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar navbar-default navbar-fixed-top text-center',
+            'class' => 'navbar navbar-default navbar-fixed-top ',
 
         ],
 
@@ -185,7 +189,9 @@ AppAsset::register($this);
 </div>
 <footer class="footer">
 
-        <p class="pull-left">&copy; HireTech <?= date('Y') ?></p>
+        <p class="pull-left">&copy;
+            <?=Html::img('@web/img/HireTechLogo1.png', ['alt'=>Yii::$app->name, 'class' => '','width'=>'40'])?>
+            HireTech <?= date('Y') ?></p>
 
         <p class="pull-right">&copy; S. Landry Design </p>
 
