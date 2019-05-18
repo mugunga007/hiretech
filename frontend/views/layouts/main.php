@@ -60,12 +60,15 @@ AppAsset::register($this);
         ['label' => '<i class="fa fa-home "></i>  Home', 'url' => ['/site/index'],
         'glyphicon'=>'cog',
         ],
-        /*
-        ['label' => '<i class="fa fa-book-open"></i> About', 'url' => ['/site/about'],
-            'icon'=>'cog',
-            ],
-        */
+
+
         ['label' => '<i class="fa fa-edit"></i>  Contact', 'url' => ['/site/contact']],
+        ['label' => '<i class="fa fa-smile"></i>  Give Us a FeedBack',
+            'url' => 'https://docs.google.com/forms/d/e/1FAIpQLSftczth8fAu4k7Jn2HT1PMDHdNoQLdK1rDZ8bK7SkkqWGakAQ/viewform?usp=sf_link',
+            'linkOptions'=>[
+                    'target'=>'_blank'
+            ]
+            ],
     ];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => '<i class="fa fa-user-cog"></i>  Signup as', 'url' => ['/site/signup'],
@@ -73,6 +76,7 @@ AppAsset::register($this);
             ['label' => '<i class="fa fa-address-card"></i>  Job Seeker', 'url' => ['/seeker/create']],
             ['label' => '<i class="fa fa-address-card"></i>  Job Provider', 'url' => ['/provider/create']],
         ]];
+
 /*
         $menuItems[] = ['label' => '<i class="fa fa-sign-in-alt"></i> Login as', 'url' => ['/site/login']];
 */
@@ -165,6 +169,8 @@ AppAsset::register($this);
                 . '</li>';
         }
     }
+
+
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => $menuItems,
