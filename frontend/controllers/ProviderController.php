@@ -503,7 +503,7 @@ class ProviderController extends Controller
     }
 
     /**
-     * Confirm Selected candidates
+     *  Selected candidates
      *
      */
 
@@ -679,20 +679,28 @@ class ProviderController extends Controller
 
         $provider_job = ProviderJob::findOne(['provider_job_id'=>$provider_job_id]);
 
+       // $seekers_to_confirm
+
+            //-------- Update SelectedSeeker columns matching the following--
         SelectedSeeker::updateAll([
             'status'=>'Confirmed',
             'message'=>$selected->message,
             'confirmation_time'=>$todayString
         ],
             ['provider_id'=>$selected->provider_id,
-                'provider_job_id'=>$selected->provider_job_id,
+                'provider_job_id'=>$provider_job_id,
                 'status'=>'Selected']);
+//---------------------------------------------------------------------------
+
+        //-------
 
         $provider_job->status = 3;
         $date_time = new DateTime();
         $provider_job->last_edit = $date_time->format('Y-m-d H:i:s');
         $provider_job->save();
-//////////////////////////////////////////////////
+
+
+
 
         $provider_id = Yii::$app->user->identity->provider->provider_id;
         $provider_job = new ActiveDataProvider([

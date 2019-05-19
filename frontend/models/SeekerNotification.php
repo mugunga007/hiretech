@@ -52,8 +52,10 @@ class SeekerNotification extends \yii\db\ActiveRecord
     public function check_new_notifications($seeker_id){
         $seeker_notifications = SeekerNotification::find()
         ->where(['seeker_id'=>$seeker_id])
-        ->andWhere(['status'=>'unread']);
-
+        ->andWhere(['status'=>'unread'])
+        ->orderBy([
+            'time'=>SORT_DESC
+        ]);
         return $seeker_notifications;
     }
 
@@ -65,7 +67,10 @@ class SeekerNotification extends \yii\db\ActiveRecord
     {
         $seeker_notifications = SeekerNotification::find()
             ->where(['seeker_id'=>$seeker_id])
-            ->andWhere(['status'=>'unread']);
+            ->andWhere(['status'=>'unread'])
+            ->orderBy([
+                'time'=>SORT_DESC
+            ]);
         $items = [];
         foreach ($seeker_notifications as $n) {
             array_push($items, ['label' => 'u', 'url' => 'seeker/notifications']);

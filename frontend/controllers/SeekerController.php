@@ -583,7 +583,10 @@ public function actionSearchseekerss()
             'query'=>
                 SelectedSeeker::find()
                     ->where(['seeker_id'=>$seeker_id])
-                    ->andWhere(['<>','status','Selected']),
+                    ->andWhere(['<>','status','Selected'])
+            ->orderBy([
+                'confirmation_time'=>SORT_DESC
+            ]),
             'pagination'=>[
                 'pageSize'=>3,
             ]
