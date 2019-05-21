@@ -41,7 +41,7 @@ class SeekerUpdatePicture extends Seeker
     {
         return [
             [['picture'], 'required'],
-            [['picture'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg'],
+            [['picture'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg, jpeg'],
         ];
     }
 
