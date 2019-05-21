@@ -56,7 +56,7 @@ use yii\helpers\Html;
                     <?php
                     foreach ($job as $jobtype) {
                         ?>
-                        <a type="button" href="<?=Url::to(['seeker/addjobtype','seekerid'=>Yii::$app->user->identity->seeker->seeker_id,'jobtypeid'=>$jobtype->job_type_id])?>" class="btn btn-primary"> <i
+                        <a type="button" href="<?=Url::to(['seeker/addjobtype','seekerid'=>Yii::$app->user->identity->seeker->seeker_id,'jobtypeid'=>$jobtype->job_type_id])?>" class="btn btn-primary somespace"> <i
                                     class="fa fa-plus"></i> <?=$jobtype->title ?> </a>
                         <?php
                     }

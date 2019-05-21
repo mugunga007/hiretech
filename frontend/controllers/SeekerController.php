@@ -274,6 +274,7 @@ class SeekerController extends Controller
     {
 
         $seeker_id = Yii::$app->user->identity->seeker->seeker_id;
+      //  $seeker = Seeker::findOne(['seeker_id'=>$seeker_id]);
         // modelupdate to load form in the modal
        // $model = new SeekerUpdatePicture();
 
@@ -283,6 +284,10 @@ class SeekerController extends Controller
            $picture = UploadedFile::getInstance($model, 'picture');
            $picture->saveAs('img/upload/' . $model->email . 'pic.' . $picture->extension);
            $model->picture = $model->email . 'pic.' . $picture->extension;
+
+         //  $seeker->picture = $model->picture;
+        //   $seeker->save();
+
            $model->save();
                Yii::$app->getSession()->setFlash('success',
                    'Your Picture have been Updated Successfully, It will be Changed in a while <b><i class="fa fa-user-check"></i></b>');
