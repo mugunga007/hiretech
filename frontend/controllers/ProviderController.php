@@ -121,7 +121,7 @@ class ProviderController extends Controller
             if($user = $newuser->signup()){
                 if(Yii::$app->getUser()->login($user)){
 
-            return $this->redirect(['view', 'id' => $model->provider_id]);
+            return $this->redirect(['provider/providerdashboard']);
                 }
             }
 
@@ -832,16 +832,16 @@ class ProviderController extends Controller
      */
 
     public function actionBookmarkspage(){
-
+    $provider_id = Yii::$app->user->identity->provider->provider_id;
         $distinct_bookmarks = BookmarkSeeker::find()
             ->select('job_type_id')
             ->distinct()
 
-      ->where(['provider_id'=>10])
+      ->where(['provider_id'=>$provider_id])
             ->all()
         ;
 
-        ;
+
 
         return $this->render('bookmarkspage',
             [

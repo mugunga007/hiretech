@@ -25,9 +25,9 @@ $session = Yii::$app->session;
 $bookmark_seeker = new BookmarkSeeker();
 ?>
 
-<div class=" navpil text-center" >
+<div class="row navpil text-center" >
 
-
+    <div class="col-md-12">
 
     <?php
   echo  Menu::widget([
@@ -78,7 +78,7 @@ $bookmark_seeker = new BookmarkSeeker();
     )
     ?>
 
-
+    </div>
 
 </div>
 <hr>

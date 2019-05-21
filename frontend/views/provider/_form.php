@@ -15,7 +15,7 @@ use yii\helpers\ArrayHelper;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'names')->textInput(['maxlength' => true])->input('text',['placeholder'=>'Enter full names'])?>
+    <?= $form->field($model, 'names')->textInput(['maxlength' => true])->input('text',['placeholder'=>'Enter full names or Company name'])?>
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true])->input('text',['placeholder'=>'Your contact email']) ?>
 

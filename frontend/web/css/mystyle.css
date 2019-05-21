@@ -588,7 +588,9 @@ body{
 }
 
 
-
+ .push {
+    height: 45px; /* .push must be the same height as .footer */
+}
 
 @media (max-width: 600px){
     p{

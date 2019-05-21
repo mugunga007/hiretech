@@ -15,18 +15,11 @@ use frontend\models\JobType;
 
 ?>
 
-<div class="container">
 
-    <div class="row  ">
-        <div class="col-md-1">
-        </div>
-        <div class="col-md-10 ">
+
+
             <?=$this->render('prodashlayout')?>
-        </div>
-        <div class="col-md-1">
-        </div>
 
-    </div>
 
     <div class="row">
 
@@ -52,6 +45,6 @@ use frontend\models\JobType;
     </div>
 
 
-</div>
+
 
 

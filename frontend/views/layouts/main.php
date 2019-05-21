@@ -21,7 +21,7 @@ AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>">
+<html lang="<?= Yii::$app->language ?>" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,10 +30,10 @@ AppAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
-<body>
+<br>
 <?php $this->beginBody() ?>
 
-<div class="wrap body-background">
+<div class="wrap ">
 
 
 
@@ -181,7 +181,6 @@ AppAsset::register($this);
     ?>
 
 <div class="container">
-
         <?php
 
         Breadcrumbs::widget([
@@ -191,23 +190,28 @@ AppAsset::register($this);
 
         <?= Alert::widget() ?>
         <?= $content ?>
-</div>
-</div>
-<footer class="footer">
 
+
+</div>
+
+<div class="push"></div>
+</div>
+
+<footer class="footer ">
+    <div class="container">
         <p class="pull-left">&copy;
             <?=Html::img('@web/img/HireTechLogo1.png', ['alt'=>Yii::$app->name, 'class' => '','width'=>'40'])?>
             HireTech <?= date('Y') ?></p>
 
         <p class="pull-right">&copy; S. Landry Design </p>
-
+    </div>
 </footer>
 
 
 <?php $this->endBody() ?>
 </body>
 </html>
-<?php $this->endPage() ?>
 <script>
     AOS.init();
 </script>
+<?php $this->endPage() ?>

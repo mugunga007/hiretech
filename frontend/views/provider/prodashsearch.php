@@ -18,26 +18,23 @@ use yii\widgets\Pjax;
 use yii\helpers\Url;
 
 ?>
-<div class="container">
 
-    <div class="row  ">
-        <div class="col-md-1">
-        </div>
-        <div class="col-md-10 ">
+
+
             <?=$this->render('prodashlayout')?>
-        </div>
-        <div class="col-md-1">
-        </div>
 
-    </div>
 
     <div class="row">
 
         <div class="col-md-12">
-            <div class="">
-            <div class=" text-center" >
-                <p><b> <div class="well well-sm ">Choose Candidates you would like to interview! </div> </b></p>
+
+            <div class="well well-sm text-center" >
+                <p><b> Choose Candidates you would like to interview!  </b></p>
+            </div>
+        </div>
+    </div>
                 <div class="row">
+        <div class="col-md-12">
 
                 <?php $form = ActiveForm::begin([
                         'action'=>'prodashsearch',
@@ -99,14 +96,14 @@ use yii\helpers\Url;
 
                     <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn mybtnprimary']) ?>
                 </div>
-                </div>
+
 
                 <?php ActiveForm::end(); ?>
-                </div>
-            </div>
-            </div>
-        </div>
 
+
+
+
+</div>
 
     </div>
 
@@ -151,7 +148,7 @@ use yii\helpers\Url;
         </div>
     </div>
 
-</div>
+
 
 
 
