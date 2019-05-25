@@ -26,13 +26,16 @@ use yii\helpers\Url;
         <div class="col-md-2">
         </div>
 
-        <div class="col-md-8">
+        <div class="col-md-8 text-center">
 
             <?php
             echo ListView::widget([
                     'dataProvider'=>$provider_job,
                 'itemView' => '_dashboard_provider_job',
-                'emptyText'=>' <a href="'.Url::to('providerjobs').'"><i class="fa fa-briefcase"></i> Start by Creating an Offer</a>'
+                'emptyText'=>'  <i class="fa fa-exclamation-triangle fa-2x text-warning"></i> Looks empty here
+                 <a href="'.Url::to('providerjobs').'"><br/><br/> Start by Creating an Offer</a>
+                 <br/><br/> <i class="fa fa-hand-point-up fa-6x text-success"></i>
+                 '
             ])
             ?>
 

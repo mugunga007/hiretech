@@ -63,7 +63,7 @@ class Provider extends \yii\db\ActiveRecord
             'email' => Yii::t('app', 'Email'),
             'password' => Yii::t('app', 'Password'),
             'type' => Yii::t('app', 'Type of Employer'),
-            'address' => Yii::t('app', 'Address'),
+            'address' => Yii::t('app', 'Location'),
             'phone' => Yii::t('app', 'Phone'),
             'time' => Yii::t('app', 'Time'),
         ];
