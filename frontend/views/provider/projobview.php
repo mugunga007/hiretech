@@ -24,10 +24,10 @@ use yii\helpers\Url;
             <?=$this->render('prodashlayout')?>
 
     <div class="row">
-        <div class="col-md-2">
-        </div>
+        <div class="col-md-12">
 
-        <div class="col-md-8">
+
+
             <a class="btn mybtnsuccess" href="<?=Url::to('providerjobs')?>"><i class="fa fa-plus-circle"></i> Create new Job Offer</a>
 
 
@@ -66,8 +66,7 @@ use yii\helpers\Url;
             ?>
         </div>
 
-<div class="col-md-2">
-</div>
+
 
     </div>
 

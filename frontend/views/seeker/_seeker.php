@@ -54,7 +54,7 @@ use frontend\models\SeekerNotification;
 
     <div class="col-md-4 col-sm-6  ">
 
-        <img src="<?=Url::to(['img/upload/'.$model->picture])?>" class="img-responsive" width="150px">
+        <img src="<?=Url::to(['img/upload/'.$model->picture])?>" class="img-responsive" width="150px"  height="150px">
     </div>
         <div class="col-md-8 col-sm-6 ">
             <h3><?=$model->firstname?> <?=$model->lastname?>, <b><?=strtoupper(substr($model->gender,0,1))?>,<?=$age?>

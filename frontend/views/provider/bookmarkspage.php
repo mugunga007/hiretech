@@ -15,18 +15,9 @@ use frontend\models\ProviderJob;
 <?php
 $provider_job = new ProviderJob();
 ?>
-<div class="container">
 
-    <div class="row  ">
-        <div class="col-md-1">
-        </div>
-        <div class="col-md-10 ">
             <?=$this->render('prodashlayout')?>
-        </div>
-        <div class="col-md-1">
-        </div>
 
-    </div>
 
     <?php
     $jobtype = new JobType();
@@ -35,6 +26,9 @@ $provider_job = new ProviderJob();
     foreach ($distinct_bookmarks as $db) {
 
         ?>
+
+<div class="row">
+
 
 
         <div class="col-sm-3 text-center ">
