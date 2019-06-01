@@ -172,7 +172,7 @@ AppAsset::register($this);
 
 
     echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
+        'options' => ['class' => 'navbar-nav navbar-right navbar-justified'],
         'items' => $menuItems,
         'encodeLabels' => false,
 

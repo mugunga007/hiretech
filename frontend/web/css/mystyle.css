@@ -111,6 +111,21 @@
 
 }
 
+
+.myformhomey{
+    width: 100%;
+    background-color: white;
+    border-bottom: 1px solid #d5d5d5;
+    border-left: 1px solid #d5d5d5;
+    border-right: 0px ;
+    border-top: 0px;
+    padding: 30px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    box-shadow: 3px 4px 2px 0px #b9b9b9;
+
+}
+
 .myformsearch{
     background-color: #f3f3f3;
 
@@ -390,7 +405,7 @@ input[type=text]:focus, input[type=password]:focus {
     border-radius: 6px;
     box-shadow: 0 2px 3px 0 #c3c3c3;
     margin: 4px;
-   /* background-color: red; */
+    background-color: white;
 }
 
 .navpil li a{
@@ -599,4 +614,75 @@ body{
     a{
         font-size: 1.25rem;
     }
+}
+
+
+
+
+@media (max-width: 990px) {
+    .navbar-header{
+        float: none;
+    }
+    .navbar-left,.navbar-right {
+        float: none !important;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-fixed-top {
+        top: 0;
+        border-width: 0 0 1px;
+    }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+        margin-top: 7.5px;
+    }
+    .navbar-nav>li {
+        float: none;
+    }
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .collapse.in{
+        display:block !important;
+    }
+}
+
+
+
+.myformhomey{
+    width: 95%;
+    background-color: white;
+    border-bottom: 1px solid #d5d5d5;
+    border-left: 1px solid #d5d5d5;
+    border-right: 0px ;
+    border-top: 0px;
+    padding: 30px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    box-shadow: 3px 4px 2px 0px #b9b9b9;
+
+}
+
+
+.homepageadhomey{
+    width: 95%;
+    background-color: white;
+    border-bottom: 1px solid #d5d5d5;
+    border-left: 1px solid #d5d5d5;
+    border-right: 0px ;
+    border-top: 0px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 3px 4px 2px 0px #b9b9b9;
+    margin-bottom: 20px;
+
 }

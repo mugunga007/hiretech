@@ -9,69 +9,22 @@ use yii\helpers\Url;
 ?>
 
 
-<div class="container">
-
-    <div class="row">
-
-        <div class="col-md-8">
-                    <div class="animated fadeInLeft">
-            <div class="homepagead">
-
-                <div class="text-center">
-                <img src="<?=Url::to(['img/choosefineani.gif'])?>" width="50%" />
-
-
-                    <h3>Are you looking for the <em class="mycolor">right</em> employee?</h3>
-                    <h3>Or are you searching for a job? </h3>
-                    <em>You're at the <b class="mycolor">right</b> place, just register with us and open the <b class="mycolor">right</b> doors!</em>
-                    <a type="button" href="<?=Url::to(['seeker/create'])?>" class="btn btn-lg mybtnprimary">I'm searching for a job <i class="fa fa-mouse-pointer "></i></a>
-                    <a type="button" href="<?=Url::to(['provider/create'])?>" class="btn btn-lg mybtnprimary">I'm looking for an employee <i class="fa fa-mouse-pointer "></i></a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="animated fadeInRight">
-            <div class="myformblue">
-            <div class="well well-sm text-center titlecolor"> Already registered? Login here </div>
-            <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
-
-            <?= $form->field($model, 'username')->textInput() ?>
-
-            <?= $form->field($model, 'password')->passwordInput() ?>
-
-            <?= $form->field($model, 'rememberMe')->checkbox() ?>
-
-            <div style="color:#999;margin:1em 0">
-                If you forgot your password you can <?= Html::a('reset it', ['site/request-password-reset']) ?>.
-            </div>
-
-            <div class="form-group text-center">
-                <?= Html::submitButton('Login', ['class' => 'btn btn-primary mybtn ', 'name' => 'login-button']) ?>
-            </div>
-
-            <?php ActiveForm::end(); ?>
-            </div>
-            </div>
-        </div>
-
-
-    </div>
-
-
-
-<div class="jumbotron ">
-    <div data-aos="fade-up">
-    <h1 class=""> Services</h1>
+<div class="row ">
 
     <p class="lead">You have successfully created your Yii-powered application.</p>
 
-    </div>
+
 </div>
 
-<div class="body-content">
+<div class="row ">
+
+    <p class="lead">You have successfully created your Yii-powered application.</p>
+
+
+</div>
+
+
+
 
     <div class="row">
         <div class="col-lg-4">
@@ -110,7 +63,7 @@ use yii\helpers\Url;
         </div>
     </div>
 
-</div>
+
 
 
 </div>

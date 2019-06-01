@@ -3,6 +3,7 @@ namespace frontend\controllers;
 
 use common\models\User;
 use frontend\models\Provider;
+use frontend\models\UserLoginForm;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -374,6 +375,13 @@ class SiteController extends Controller
      *
      * Testing file
      */
+
+    public function actionHomey(){
+        $model = new LoginForm();
+        return $this->render('homepage',[
+            'model'=>$model
+        ]);
+    }
 /*
     public function actionHomepage(){
         if (!Yii::$app->user->isGuest) {

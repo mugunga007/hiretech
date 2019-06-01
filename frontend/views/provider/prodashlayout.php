@@ -25,10 +25,25 @@ $session = Yii::$app->session;
 $bookmark_seeker = new BookmarkSeeker();
 ?>
 
+
+
 <div class="row navpil text-center" >
 
     <div class="col-md-12">
 
+
+
+<nav class="navbar navbar-default ">
+    <div class="navbar-header dashcollapse">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mynav">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+
+        </button>
+
+    </div>
+<div class="collapse navbar-collapse" id="mynav">
     <?php
   echo  Menu::widget([
         'items'=>[
@@ -49,13 +64,7 @@ $bookmark_seeker = new BookmarkSeeker();
                 'template'=>' <a href="{url}"> <i class="fa fa-search"></i> {label} </a>'
             ],
 
-            /*
-            ['label'=>' Saved Search',
-                'url'=>['provider/index'],
-                'template'=>' <a href="{url}"> <i class="fa fa-history"></i> {label} </a>'
-            ],
 
-            */
 
 
             ['label'=>' Saved Profiles',
@@ -69,7 +78,8 @@ $bookmark_seeker = new BookmarkSeeker();
 
             'activeCssClass'=>'myactive',
           'options' => [
-              'class' => 'nav nav-justified',
+              'class' => 'nav  nav-justified ',
+                'id'=>'mynav',
 
               'style'=>'font-size: 14px;',
               'data-tag'=>'yii2-menu',
@@ -77,8 +87,8 @@ $bookmark_seeker = new BookmarkSeeker();
         ]
     )
     ?>
-
+</div>
+</nav>
     </div>
 
 </div>
-<hr>

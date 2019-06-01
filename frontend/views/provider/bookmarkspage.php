@@ -19,6 +19,7 @@ $provider_job = new ProviderJob();
             <?=$this->render('prodashlayout')?>
 
 
+<div class="row">
     <?php
     $jobtype = new JobType();
     $book = new BookmarkSeeker();
@@ -27,7 +28,6 @@ $provider_job = new ProviderJob();
 
         ?>
 
-<div class="row">
 
 
 
