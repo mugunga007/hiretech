@@ -59,12 +59,7 @@ AppAsset::register($this);
 
     ]);
 
-    $menuItems = [
-        ['label' => '<i class="fa fa-home "></i>  Home', 'url' => ['/site/index'],
-        'glyphicon'=>'cog',
-        ],
-
-
+    $menuItems =[
         ['label' => '<i class="fa fa-edit"></i>  Contact', 'url' => ['/site/contact']],
         ['label' => '<i class="fa fa-smile"></i>  Give Us a FeedBack',
             'url' => 'https://docs.google.com/forms/d/e/1FAIpQLSftczth8fAu4k7Jn2HT1PMDHdNoQLdK1rDZ8bK7SkkqWGakAQ/viewform?usp=sf_link',
