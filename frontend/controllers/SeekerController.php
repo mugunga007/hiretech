@@ -23,6 +23,7 @@ use DateTime;
 use yii\filters\AccessControl;
 use yii\db\Exception;
 use frontend\models\SeekerNotification;
+use frontend\models\ProviderNotification;
 
 
 
@@ -519,11 +520,17 @@ public function actionSearchseekerss()
                 'pageSize'=>3,
             ]
         ]);
-       /*
-        return $this->render('seekerdashboard',[
-            'model'=>$model
-        ]);
-        */
+        //------------ Notify provider ------------------------------
+        $seeker_email = Yii::$app->user->identity->seeker->email;
+        $provider_notification = new ProviderNotification();
+        $provider_notification->notify_provider($selected->provider_id,
+           $provider_notification->accepted_message,
+            'Accepted',
+            $seeker_email);
+
+        //----------------------------------
+
+
 
        return $this->redirect(Yii::$app->request->referrer);
 

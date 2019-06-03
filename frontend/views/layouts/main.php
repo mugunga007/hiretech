@@ -16,6 +16,8 @@ use frontend\models\Myfunctions;
 
 use frontend\models\SeekerNotification;
 use frontend\components\SmallBody;
+use frontend\models\ProviderNotification;
+use frontend\models\Provider;
 
 AppAsset::register($this);
 ?>
@@ -39,7 +41,8 @@ AppAsset::register($this);
 
     <?php
     $seeker_notifications = new SeekerNotification();
-
+    $provider_notifications = new ProviderNotification();
+    $function = new Myfunctions();
     NavBar::begin([
         'brandLabel' => Html::img('@web/img/HireTechLogo1.png',
             ['alt'=>Yii::$app->name,
@@ -84,7 +87,7 @@ AppAsset::register($this);
         $role = Yii::$app->user->identity->role;
         $name = '';
         if ($role == 'seeker') {
-            $function = new Myfunctions();
+
 
             $seeker = Seeker::findOne(Yii::$app->user->identity->seeker->seeker_id);
 
@@ -137,16 +140,36 @@ AppAsset::register($this);
 
                 ];
         } elseif ($role == 'provider') {
-            $name = Yii::$app->user->identity->provider->names;
+            $provider = Provider::findOne(Yii::$app->user->identity->provider->provider_id);
+            $name = $provider->names;
 
             $menuItems[] =
                 ['label'=>'<i class="fa fa-tachometer-alt"></i> Dashboard  </a> </li>',
                'url'=>['provider/providerdashboard'] ];
+
+            $pro_notifications = $provider_notifications->check_new_notifications($provider->provider_id);
+            $items = [];
+            foreach ($pro_notifications->all() as $not){
+                array_push($items,['label'=>
+                    '<b>'.SmallBody::widget(['body'=>$not->message]).'</b> <small>'.$function->time_elapsed_string($not->time).'</small>',
+                    'url'=>['provider/notifications']]);
+            }
+            //    if($notifications->count() > 0){
+            if($pro_notifications->count()>0) {
+                $menuItems[] = ['label' => '<i class="fa fa-bell"></i> 
+ <span class="label label-danger">' . $pro_notifications->count() . ' </span>', 'url' => ['/site/signup'],
+                    'items' => $items,
+                ];
+            }else{
+                $menuItems[] =
+                    ['label'=>'<i class="fa fa-bell"></i> 
+ <span class="label label-default">' . $pro_notifications->count() . ' </span> </li>',
+                        'url'=>['seeker/notifications'] ];
+            }
+
             $menuItems[]=
 
 
-                '<li><a class="far fa-bell" href="'.Url::to(['provider/providerdashboard']).'">
-                 <span class="label label-danger">1</span>  </a> </li>'.
                '<li>'
                 . Html::beginForm(['/site/logout'], 'post')
                 . Html::submitButton(
