@@ -362,7 +362,7 @@ class ProviderController extends Controller
      * Function to search candidates from a job link
      */
 
-    public function actionSearchjobcandidates()
+    public function actionSearchjobcandidates($provider_job_id,$job_type_id)
     {
 
 
@@ -375,18 +375,17 @@ class ProviderController extends Controller
 
        $searchresultmodel->load(Yii::$app->request->queryParams);
         /*
-       $session = Yii::$app->session;
-       $provider_job_id = $session->get('projobid') ;
-
-       */
 
         $session = Yii::$app->session;
         $session->set('projobid',$searchresultmodel->provider_job_id);
 
         $provider_job_id = $searchresultmodel->provider_job_id;
+       */
+
+
         $providerjob = ProviderJob::findOne(['provider_job_id'=>$provider_job_id]);
 
-        $job_type_id = $providerjob->job_type_id;
+       // $job_type_id = $providerjob->job_type_id;
         $jobtype = JobType::findOne(['job_type_id'=>$job_type_id]);
         $jobtypetitle = $jobtype->title;
         //--------- CALCULATE AGE  ------------------------
@@ -424,9 +423,9 @@ class ProviderController extends Controller
 
         // session 1st method
 /*
+*/
         $session = Yii::$app->session;
         $session->set('projobid',$provider_job_id);
-*/
 
         // Record Last edit on this job
         $providerjob = ProviderJob::findOne(['provider_job_id'=>$provider_job_id]);

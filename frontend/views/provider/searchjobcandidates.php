@@ -188,6 +188,18 @@ $session->open();
 
         </div>
 
+        <div class="col-md-2">
+        <!--
+            <div class="selected_cart text-center">
+
+                <i class="fa fa-users fa-2x"></i>
+                <h4> <i class="fa fa-briefcase"></i> job title </h4>
+                <h5>4</h5>
+
+
+            </div>
+            !-->
+        </div>
 
     </div>
 

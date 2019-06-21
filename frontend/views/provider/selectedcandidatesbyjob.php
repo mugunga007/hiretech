@@ -34,17 +34,9 @@ $provider_id = Yii::$app->user->identity->provider->provider_id;
         <div class="col-md-2">
         </div>
         <div class="col-md-8">
-            <div class="well well-sm titlecolor"><i class="fa fa-clipboard-check"></i> Confirm the list of candidates you've chosen </div>
+            <div class="well well-sm titlecolor"><i class="fa fa-clipboard-check"></i> Sending Offer to the list of candidates you've chosen </div>
 
-            <div class="animated shake">
-            <a class="btn mybtnsuccess"
-               href="<?=Url::to(['provider/searchjobcandidates','provider_job_id'=>$provider_job_id,'job_type_id'=>$job_type_id])?>">
 
-                <i class="fa fa-search fa-2x"></i>  Search For More Condidates
-
-                </i>
-            </a>
-            </div>
             <?php
 
             echo ListView::widget([
@@ -58,6 +50,13 @@ $provider_id = Yii::$app->user->identity->provider->provider_id;
             ])
 
             ?>
+            <a href="<?=Url::to(['provider/searchjobcandidates','provider_job_id'=>$provider_job_id,'job_type_id'=>$job_type_id])?>"
+               style="text-decoration: none">
+            <div class="selectedlist text-center">
+                <i class="fa fa-user-plus fa-3x text-success"></i>
+                <p>Add more Candidates to this offer</p>
+            </div>
+            </a>
             <hr/>
 
 
