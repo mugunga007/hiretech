@@ -113,11 +113,13 @@ class ProviderJob extends \yii\db\ActiveRecord
      */
 
     public function checkjobs($job_type_id){
+
         $provider_id  = Yii::$app->user->identity->provider->provider_id;
         $provider_job = ProviderJob::find()
             ->where(['provider_id'=>$provider_id])
             ->andWhere(['job_type_id'=>$job_type_id])
-            ->andWhere(['<','status',3]);
+            ->andWhere(['<','status',3])
+        ;
 
 
         return $provider_job;

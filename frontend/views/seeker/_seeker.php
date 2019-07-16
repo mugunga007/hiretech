@@ -83,6 +83,20 @@ use frontend\models\SeekerNotification;
                 ?>
             </h5>
             <h5><i class="fa fa-user-graduate"></i> <b>Experience:</b> <?=$model->experience?> </h5>
+            num  <?php
+
+            if($selected->chkselected(10,14)==true) {
+
+                ?>
+                true
+                <?php
+            }else {
+                ?>
+false
+                <?php
+            }
+            ?>
+
             <?php
 
             if($selected->selected($providerid,$model->seeker_id)) {
@@ -103,7 +117,9 @@ use frontend\models\SeekerNotification;
                     <i class="fa fa-window-close"></i>
                     Cancel
                 </a>
-                <?php
+
+
+                              <?php
 
 
             }else {
@@ -258,8 +274,9 @@ use frontend\models\SeekerNotification;
             <?php Pjax::end();?>
 
 
-
 </div>
+
+
     </div>
 </div>
 

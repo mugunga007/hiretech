@@ -108,6 +108,21 @@ class SelectedSeeker extends \yii\db\ActiveRecord
     }
 
     /**
+     * Selected Seeker
+     */
+
+    public function chkselected($providerid,$seekerid){
+        $selected = false;
+        $sel = SelectedSeeker::findOne(['seeker_id'=>$seekerid,
+            'provider_id'=>$providerid,
+            'status'=>'Selected']);
+
+
+
+        return $selected;
+
+    }
+    /**
      * Get selected_seeker data
      */
 

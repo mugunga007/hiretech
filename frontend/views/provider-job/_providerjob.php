@@ -23,7 +23,7 @@ $provider_job_id = $model->provider_job_id;
 
 <div class="panel panel-default mine">
 <div class="panel-heading text-center">
-    <h5> <b><i class="fa fa-user-tie"> </i> <?=$model->job_title?>
+    <h5> <b><i class="fa fa-user-tie"> </i> <?=ucfirst($model->job_title)?>
         <?php
         $sn = $model->status;
         if($sn == 1) {
@@ -44,6 +44,8 @@ $provider_job_id = $model->provider_job_id;
         <p> <b><i class="fa fa-user-tie"> </i> Position:</b> <?=$model->jobType->title?></p>
         <p><b><i class="fa fa-map-marker-alt"> </i> Location:</b> <?=$model->location?></p>
         <p><b><i class="fa fa-hand-holding-usd"> </i> Salary:</b> <?=$model->salary?></p>
+        <p><b><i class="fa fa-clock"> </i> Hours/Week:</b> <?=$model->work_hours?></p>
+        <p><b><i class="fa fa-certificate"> </i> Contract:</b> <?=$model->contract_type?></p>
 
                 <?php
 
