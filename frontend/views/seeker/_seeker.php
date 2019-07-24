@@ -85,7 +85,7 @@ use frontend\models\SeekerNotification;
             <h5><i class="fa fa-user-graduate"></i> <b>Experience:</b> <?=$model->experience?> </h5>
             num  <?php
 
-            if($selected->chkselected($providerid,$model->seeker_id)==true) {
+            if($selected->chkselected(10,14)==true) {
 
                 ?>
                 true
