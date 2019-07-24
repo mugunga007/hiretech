@@ -56,9 +56,7 @@ $session->open();
                         ]
                     ])  ?>
 
-                <?=
-                 $form->field($searchresultmodel,'provider_job_id')->hiddenInput(['value'=>$session->get('projobid')])
-                ?>
+
 
                     <?= $form->field($searchresultmodel,'address')->input('text',
                         ['placeholder'=>'Address'])?>
@@ -98,7 +96,13 @@ $session->open();
                         ['prompt'=>'Any']
                     )?>
 
-
+                    <?=
+                    $form->field($searchresultmodel,'provider_job_id')->
+                    hiddenInput([
+                        'value'=>
+                            $session->get('projobid')
+                    ])
+                    ?>
 
 
                     <div class="form-group" style="margin-top: 3px">
