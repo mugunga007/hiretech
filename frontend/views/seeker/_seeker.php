@@ -83,16 +83,16 @@ use frontend\models\SeekerNotification;
                 ?>
             </h5>
             <h5><i class="fa fa-user-graduate"></i> <b>Experience:</b> <?=$model->experience?> </h5>
-            num  <?php
+              <?php
 
             if($selected->chkselected(10,14)==true) {
 
                 ?>
-                true
+                --
                 <?php
             }else {
                 ?>
-false
+
                 <?php
             }
             ?>
