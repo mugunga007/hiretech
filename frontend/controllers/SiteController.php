@@ -277,7 +277,7 @@ class SiteController extends Controller
     {
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
+            if ($model->sendEmail(Yii::$app->params['contactEmail'])) {
                 Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
             } else {
                 Yii::$app->session->setFlash('error', 'There was an error sending your message.');
@@ -381,6 +381,16 @@ class SiteController extends Controller
         return $this->render('homepage',[
             'model'=>$model
         ]);
+    }
+
+    public function actionSend(){
+       Yii::$app->mailer->compose()
+            ->setTo('mugunga6@gmail.com')
+            ->setFrom(Yii::$app->params['adminEmail'])
+            ->setSubject('Contact')
+            ->setTextBody('whatsap')
+            ->send();
+        return $this->redirect(Yii::$app->request->referrer);
     }
 /*
     public function actionHomepage(){

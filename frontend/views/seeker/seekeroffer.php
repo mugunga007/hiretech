@@ -40,7 +40,7 @@ $job_type = JobType::findOne(['job_type_id'=>$provider_job->job_type_id]);
             <p><b><i class="fa fa-calendar-alt"> </i> Date:</b> <?=date("Y-m-d", strtotime($model->confirmation_time)) ?></p>
 
 
-
+            <div class="text-center">
 
                 <?php
                 Modal::begin([
@@ -96,7 +96,7 @@ $job_type = JobType::findOne(['job_type_id'=>$provider_job->job_type_id]);
                      Modal::end();
                      ?>
 
-
+            </div>
 
         </div>
 
