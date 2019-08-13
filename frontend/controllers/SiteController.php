@@ -1,6 +1,8 @@
 <?php
 namespace frontend\controllers;
+// require __DIR__ . '../../vendor/autoload.php';
 
+use Twilio\Rest\Client;
 use common\models\User;
 use frontend\models\Provider;
 use frontend\models\UserLoginForm;
@@ -384,6 +386,7 @@ class SiteController extends Controller
     }
 
     public function actionSend(){
+        /*
        Yii::$app->mailer->compose()
             ->setTo('mugunga6@gmail.com')
             ->setFrom(Yii::$app->params['adminEmail'])
@@ -391,6 +394,15 @@ class SiteController extends Controller
             ->setTextBody('whatsap')
             ->send();
         return $this->redirect(Yii::$app->request->referrer);
+        */
+
+        $sid = Yii::$app->params['SID'];
+        $auth = Yii::$app->params['AUTH'];
+        $client = new Client($sid,$auth);
+        $client->messages->create('+818080325723',
+            ['from'=> '+12512502192',
+                'body'=>'Hello'
+                ]);
     }
 /*
     public function actionHomepage(){
