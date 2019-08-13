@@ -395,7 +395,7 @@ class SiteController extends Controller
             ->send();
         return $this->redirect(Yii::$app->request->referrer);
         */
-
+/*
         $sid = Yii::$app->params['SID'];
         $auth = Yii::$app->params['AUTH'];
         $client = new Client($sid,$auth);
@@ -403,6 +403,7 @@ class SiteController extends Controller
             ['from'=> '+12512502192',
                 'body'=>'Hello'
                 ]);
+*/
     }
 /*
     public function actionHomepage(){
