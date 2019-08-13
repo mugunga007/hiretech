@@ -41,7 +41,8 @@ AppAsset::register($this);
 
 
     <?php
-    $val = 1;
+    $val = 2;
+    $newtestva = 30;
     $seeker_notifications = new SeekerNotification();
     $provider_notifications = new ProviderNotification();
     $function = new Myfunctions();
@@ -64,7 +65,7 @@ AppAsset::register($this);
     $menuItems = [
 
 
-        ['label' => '<i class="fa fa-edit"></i>  Send Test', 'url' => ['/site/send']],
+        ['label' => '<i class="fa fa-edit"></i>  Send Email', 'url' => ['/site/send']],
         ['label' => '<i class="fa fa-edit"></i>  Contact Us', 'url' => ['/site/contact']],
         ['label' => '<i class="fa fa-smile"></i>  Give Us a FeedBack..',
             'url' => 'https://docs.google.com/forms/d/e/1FAIpQLSftczth8fAu4k7Jn2HT1PMDHdNoQLdK1rDZ8bK7SkkqWGakAQ/viewform?usp=sf_link',
