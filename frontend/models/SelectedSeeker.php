@@ -97,13 +97,40 @@ class SelectedSeeker extends \yii\db\ActiveRecord
      */
     public function selected($providerid,$seekerid){
         $selected = false;
+
             $sel = SelectedSeeker::findOne(['seeker_id'=>$seekerid,'provider_id'=>$providerid]);
+
 
         if($sel!=null && $sel->status == 'Selected'){
             $selected = true;
         }
 
+
         return $selected;
+
+    }
+
+    /**
+     * @return SelectedSeeker
+     */
+
+    public function selected_model($providerid,$seekerid){
+
+        $selected = new SelectedSeeker();
+        $sel = SelectedSeeker::findOne(['seeker_id'=>$seekerid,'provider_id'=>$providerid]);
+
+
+        if($sel!=null && $sel->status == 'Selected'){
+            $selected = $sel;
+
+        }
+
+            return $selected;
+
+
+
+
+
 
     }
 
@@ -147,6 +174,8 @@ class SelectedSeeker extends \yii\db\ActiveRecord
         return $selected;
 
     }
+
+
 
     /**
      * Get number of candidates of one provider job

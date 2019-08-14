@@ -81,6 +81,15 @@ class ProviderJob extends \yii\db\ActiveRecord
         ];
     }
 
+    /**
+     *
+     * Get ProviderJob model
+     */
+
+    public function getProviderJob($provider_job_id){
+        $provider_job = ProviderJob::findOne(['provider_job_id'=>$provider_job_id]);
+        return $provider_job;
+    }
 
 
     /**
@@ -203,7 +212,24 @@ class ProviderJob extends \yii\db\ActiveRecord
         }
     }
 
-   // public function getMy
+    /**
+     * Check how many Pending selection
+     */
+
+    public function confirm_selections(){
+        $provider_id = Yii::$app->user->identity->provider->provider_id;
+        $provider_job = ProviderJob::find()
+
+          // -> distinct('provider_job.provider_job_id')
+            ->join('join','selected_seeker','provider_job.provider_job_id = selected_seeker.provider_job_id')
+            ->where(['<=','provider_job.status',3])
+            ->andWhere(['selected_seeker.provider_id'=>$provider_id])
+            ->andWhere(['selected_seeker.status'=>'Selected'])
+            ->count();
+
+        return $provider_job;
+    }
+
 
     /**
      * @return \yii\db\ActiveQuery

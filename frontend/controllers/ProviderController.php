@@ -1314,6 +1314,50 @@ class ProviderController extends Controller
     }
 
     /**
+     *
+     * Confirm selections
+     */
+
+    public function actionGotoselections(){
+        $model = new ProviderJob();
+
+        $provider_id = Yii::$app->user->identity->provider->provider_id;
+        $providerjoblist = ProviderJob::find()->where(['provider_id'=>$provider_id])->all();
+
+
+
+
+
+        $dataProvider = new ActiveDataProvider([
+            'query'=> ProviderJob::find()
+                ->join('join','selected_seeker','provider_job.provider_job_id = selected_seeker.provider_job_id')
+                ->where(['<=','provider_job.status',3])
+                ->andWhere(['selected_seeker.provider_id'=>$provider_id])
+                ->andWhere(['selected_seeker.status'=>'Selected']),
+
+
+
+            'pagination'=>[
+                'pageSize'=>6
+            ]
+        ]);
+
+
+
+        return  $this->render(
+            'confirm_selections',
+
+            [
+                'dataProvider'=>$dataProvider,
+                'model'=>$model,
+                //  'searchModel'=>$searchModel,
+                'providerjoblist'=>$providerjoblist
+            ]);
+
+    }
+
+
+    /**
     *
     */
 

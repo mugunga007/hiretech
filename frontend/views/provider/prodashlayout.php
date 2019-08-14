@@ -45,36 +45,79 @@ $bookmark_seeker = new BookmarkSeeker();
     </div>
 <div class="collapse navbar-collapse" id="mynav">
     <?php
+ if($provider_job->confirm_selections()==0) {
+     $items = [
+         ['label' => ' Dashboard',
+             'url' => ['provider/providerdashboard'],
+             'template' => ' <a href="{url}"> <i class="fa fa-tachometer-alt"></i> {label} </a>'
+         ],
+
+         ['label' => ' My Offers (' . $provider_job->provider_jobs_number($provider_id) . ')',
+             'url' => ['provider/providerjobgoto'],
+             'template' => ' <a href="{url}"><i class="fa fa-briefcase"></i>  {label} </a>'
+
+         ],
+
+
+         ['label' => ' Job Seekers',
+             'url' => ['provider/prodashsearch'],
+             'template' => ' <a href="{url}"> <i class="fa fa-search"></i> {label} </a>'
+         ],
+
+
+         ['label' => ' Saved Profiles',
+             'url' => ['provider/bookmarkspage'],
+             'template' => ' <a href="{url}"> <i class="fa fa-bookmark"></i> {label} (' . $bookmark_seeker->number_of_bookmarked($provider_id) . ') </a>'
+         ],
+     ];
+ }else
+
+    {
+
+      $items = [
+
+          ['label' => ' Dashboard',
+              'url' => ['provider/providerdashboard'],
+              'template' => ' <a href="{url}"> <i class="fa fa-tachometer-alt"></i> {label} </a>'
+          ],
+
+          ['label' => ' My Offers (' . $provider_job->provider_jobs_number($provider_id) . ')',
+              'url' => ['provider/providerjobgoto'],
+              'template' => ' <a href="{url}"><i class="fa fa-briefcase"></i>  {label} </a>'
+
+          ],
+
+
+          ['label' => ' Job Seekers',
+              'url' => ['provider/prodashsearch'],
+              'template' => ' <a href="{url}"> <i class="fa fa-search"></i> {label} </a>'
+          ],
+
+
+          ['label' => ' Saved Profiles',
+              'url' => ['provider/bookmarkspage'],
+              'template' => ' <a href="{url}"> <i class="fa fa-bookmark"></i> {label} (' . $bookmark_seeker->number_of_bookmarked($provider_id) . ') </a>'
+          ],
+
+          ['label' => 'Confirm Selections',
+           'url' => ['provider/gotoselections'],
+           'template' => ' <a href="{url}"> <i class="fa fa-check-circle"></i> {label} 
+                <span class="label label-danger">
+                <i class="fa fa-tag"></i>
+                ' . $provider_job->confirm_selections() . '
+                </span>
+ </a>'
+              ],
+       ];
+   }
+
+
+// }
+
+
+
   echo  Menu::widget([
-        'items'=>[
-                ['label'=>' Dashboard',
-                    'url'=>['provider/providerdashboard'],
-                   'template'=>' <a href="{url}"> <i class="fa fa-tachometer-alt"></i> {label} </a>'
-                    ],
-
-            ['label'=>' My Offers ('.$provider_job->provider_jobs_number($provider_id).')',
-                'url'=>['provider/providerjobgoto'],
-                    'template'=>' <a href="{url}"><i class="fa fa-briefcase"></i>  {label} </a>'
-
-                ],
-
-
-            ['label'=>' Job Seekers',
-                'url'=>['provider/prodashsearch'],
-                'template'=>' <a href="{url}"> <i class="fa fa-search"></i> {label} </a>'
-            ],
-
-
-
-
-            ['label'=>' Saved Profiles',
-                'url'=>['provider/bookmarkspage'],
-                'template'=>' <a href="{url}"> <i class="fa fa-bookmark"></i> {label} ('.$bookmark_seeker->number_of_bookmarked($provider_id).') </a>'
-            ],
-
-
-
-        ],
+        'items'=>$items,
 
             'activeCssClass'=>'myactive',
           'options' => [

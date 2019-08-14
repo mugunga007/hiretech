@@ -20,9 +20,9 @@ use frontend\models\SeekerNotification;
 
 
 
+
+
 <div class="seekerslist">
-
-
     <div class="row">
         <?php
         $jobtype = new JobType();
@@ -57,6 +57,26 @@ use frontend\models\SeekerNotification;
         <img src="<?=Url::to(['img/upload/'.$model->picture])?>" class="img-responsive" width="150px"  height="150px">
     </div>
         <div class="col-md-8 col-sm-6 ">
+            <?php
+            $check_selected = false;
+            if($selected->selected($providerid,$model->seeker_id)) {
+                $check_selected = true;
+                $provider_job_id = $selected->selected_model($providerid, $model->seeker_id)
+                    ->provider_job_id;
+
+
+                ?>
+                <h4 >
+                    <span class="label label-default right_top">
+                    <i class="fa fa-user-tag"></i>
+                        <?= ucfirst($provider_job->getProviderJob($provider_job_id)->job_title) ?>
+                        <i class="fa fa-check-circle "></i>
+                    </span>
+                </h4>
+                <?php
+            }
+            ?>
+
             <h3><?=$model->firstname?> <?=$model->lastname?>, <b><?=strtoupper(substr($model->gender,0,1))?>,<?=$age?>
 
 
@@ -99,10 +119,17 @@ use frontend\models\SeekerNotification;
 
             <?php
 
-            if($selected->selected($providerid,$model->seeker_id)) {
+          //  if($selected->selected($providerid,$model->seeker_id))
+            if($check_selected)
+            {
 
+                $provider_job_id = $selected->selected_model($providerid,$model->seeker_id)
+                    ->provider_job_id;
+
+                /*
               $provider_job_id = $selected->getSelected_seeker($providerid,
                   $model->seeker_id)->provider_job_id;
+                */
 
 
                   ?>
@@ -277,8 +304,7 @@ use frontend\models\SeekerNotification;
 </div>
 
 
+
+
     </div>
 </div>
-
-
-

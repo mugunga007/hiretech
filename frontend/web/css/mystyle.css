@@ -712,3 +712,9 @@ body{
     margin-bottom: 20px;
 
 }
+
+.right_top{
+    left: 0;
+    float: right;
+    margin-top: 3px;
+}
