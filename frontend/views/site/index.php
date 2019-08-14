@@ -63,7 +63,7 @@ use yii\helpers\Url;
                     <div style="color:#999;margin:1em 0">
                         Forgot your password you can <?= Html::a('reset it', ['site/request-password-reset']) ?>.
                     </div>
-
+                    Login as <a href="<?=Url::to(['provider/login'])?>">provider</a>
                     <div class="form-group text-center">
                         <?= Html::submitButton('Login', ['class' => 'btn btn-primary mybtn ', 'name' => 'login-button']) ?>
                     </div>

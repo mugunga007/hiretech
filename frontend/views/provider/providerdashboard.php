@@ -33,7 +33,7 @@ use yii\helpers\Url;
                     'dataProvider'=>$provider_job,
                 'itemView' => '_dashboard_provider_job',
                 'emptyText'=>'  <i class="fa fa-exclamation-triangle fa-2x text-warning"></i> Looks empty here
-                 <a href="'.Url::to('provider/providerjobs').'"><br/><br/> <i class="fa fa-folder-plus "></i> Start by Creating an Offer</a>
+                 <a href="'.Url::to('providerjobs').'"><br/><br/> <i class="fa fa-folder-plus "></i> Start by Creating an Offer</a>
                  <br/><br/> Or
                  <br/><br/> <i class="fa fa-search text-primary "></i>  <a href="'.Url::to('prodashsearch').'">Search Available Employees</a>
                  <br/><br/> <i class="fa fa-hand-point-up fa-6x text-success"></i>

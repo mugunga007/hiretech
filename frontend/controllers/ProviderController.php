@@ -25,6 +25,7 @@ use frontend\models\ProviderJobSearch;
 use DateTime;
 use yii\data\Sort;
 use yii\filters\AccessControl;
+use common\models\LoginForm;
 
 
 /**
@@ -51,7 +52,7 @@ class ProviderController extends Controller
             ],
             'access'=>[
                 'class'=>AccessControl::className(),
-                'except'=>['create'],
+                'except'=>['create','login'],
                 'rules'=>[
                     [
                       'allow'=>true,
@@ -132,6 +133,58 @@ class ProviderController extends Controller
             'model' => $model,
         ]);
     }
+
+    /**
+     * Provider Login
+     */
+
+
+
+    public function actionLogin(){
+        $model = new LoginForm();
+
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            $userlog = User::findOne(['username' => $model->username]);
+            if ($userlog->role == 'provider') {
+                $provider_id = Yii::$app->user->identity->provider->provider_id;
+                $provider_job_count = ProviderJob::find()->where(['provider_id' => $provider_id])
+                    ->count();
+
+
+                $provider_id = Yii::$app->user->identity->provider->provider_id;
+                $provider_job = new ActiveDataProvider([
+                    'query' => ProviderJob::find()
+                        ->where(['provider_id' => $provider_id])
+                        ->andWhere(['>=', 'status', 3])
+                ]);
+
+
+                return $this->render(
+                    '/provider/providerdashboard',
+                    //'../provider-job/_providerjob',
+                    [
+                        'provider_job' => $provider_job,
+                        'model' => $model,
+
+                        'provider_job_count' => $provider_job_count,
+                    ]);
+
+
+            }
+        }
+            else
+
+            return $this->render(
+                '/provider/login_provider',
+
+                [
+
+                    'model' => $model,
+
+                ]);
+
+
+        }
 
     /**
      * Updates an existing Provider model.
