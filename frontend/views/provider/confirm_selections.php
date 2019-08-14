@@ -23,20 +23,7 @@ use yii\helpers\Url;
 
 
 
-        <?php
-        $n = 5;
-        $array = [
-            'a' => 'one',
-            'b'  => 'two'
-        ];
 
-        if($n<10) {
-            $array['c'] = 'three';
-        }
-
-        $result = print_r($array,true);
-        ?>
-        <?=$result?>
 
 
 
