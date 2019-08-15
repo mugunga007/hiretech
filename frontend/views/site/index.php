@@ -32,13 +32,13 @@ use yii\helpers\Url;
                             <div class="col-sm-6">
                                 <a type="button" href="<?=Url::to(['seeker/create'])?>"
                                    class="btn btn-lg mybtnprimary">Searching for a job
-                                    </i></a>
+                                    </a>
                             </div>
 
                             <div class="col-sm-6 ">
                                 <a type="button" href="<?=Url::to(['provider/create'])?>"
                                    class="btn btn-lg mybtnprimary">Looking for an employee
-                                    </i></a>
+                                    </a>
                             </div>
                         </div>
                     </div>
@@ -52,23 +52,25 @@ use yii\helpers\Url;
             <div class="animated fadeInRight">
                 <div class="myform">
                     <div class="well well-sm text-center "> Already Registered? Sign in </div>
-                    <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
 
-                    <?= $form->field($model, 'username')->textInput() ?>
 
-                    <?= $form->field($model, 'password')->passwordInput() ?>
 
-                    <?= $form->field($model, 'rememberMe')->checkbox() ?>
+                    <a type="button" href="<?=Url::to(['seeker/login'])?>"
+                       class="btn btn-lg mybtnprimary">
+                        <i class="fa fa-user"></i>
+                        Jobseeker
+                        </a>
 
-                    <div style="color:#999;margin:1em 0">
-                        Forgot your password you can <?= Html::a('reset it', ['site/request-password-reset']) ?>.
-                    </div>
-                    Login as <a href="<?=Url::to(['provider/login'])?>">provider</a>
-                    <div class="form-group text-center">
-                        <?= Html::submitButton('Login', ['class' => 'btn btn-primary mybtn ', 'name' => 'login-button']) ?>
-                    </div>
 
-                    <?php ActiveForm::end(); ?>
+
+                    <a type="button" href="<?=Url::to(['provider/login'])?>"
+                       class="btn btn-lg mybtnprimary">
+                        <i class="fa fa-user"></i>
+                        Employer
+                    </a>
+
+
+
                 </div>
             </div>
         </div>

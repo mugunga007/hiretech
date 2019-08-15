@@ -169,7 +169,7 @@ class ProviderController extends Controller
                         'provider_job_count' => $provider_job_count,
                     ]);
 
-
+// commit
             }
         }
             else

@@ -15,9 +15,9 @@ use yii\helpers\ArrayHelper;
     <div class="col-md-4">
     </div>
     <div class="col-md-4">
-
+        <div data-aos="fade-left">
 <div class="myform">
-<div class="well well-sm text-center titlecolor"> Employee Login Form </div>
+<div class="well well-sm text-center titlecolor"> Employer Login </div>
 
 <?php $form = ActiveForm::begin([
 
@@ -39,6 +39,7 @@ use yii\helpers\ArrayHelper;
 <?php ActiveForm::end(); ?>
 
 </div>
+        </div>
     </div>
     <div class="col-md-4">
     </div>

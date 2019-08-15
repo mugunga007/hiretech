@@ -23,7 +23,9 @@ use DateTime;
 use yii\filters\AccessControl;
 use yii\db\Exception;
 use frontend\models\SeekerNotification;
+use common\models\User;
 use frontend\models\ProviderNotification;
+use common\models\LoginForm;
 
 
 
@@ -45,7 +47,7 @@ class SeekerController extends Controller
                 ]
                 ],
                 'access'=>[
-                    'except'=>['create'],
+                    'except'=>['create','login'],
                     'class'=>AccessControl::className(),
                     'rules'=>[
                         [
@@ -77,6 +79,58 @@ class SeekerController extends Controller
         ]);
     }
 */
+
+
+
+    /**
+     * Seeker Login
+     */
+
+
+
+    public function actionLogin()
+    {
+        $model = new LoginForm();
+
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            $userlog = User::findOne(['username' => $model->username]);
+            if ($userlog->role == 'seeker') {
+
+                $seeker_id = Yii::$app->user->identity->seeker->seeker_id;
+
+
+                $model = new ActiveDataProvider([
+                    'query' =>
+                        SelectedSeeker::find()
+                            ->where(['seeker_id' => $seeker_id])
+                            ->andWhere(['status' => 'Confirmed']),
+                    'pagination' => [
+                        'pageSize' => 3,
+                    ]
+
+                ]);
+
+
+                //  Yii::$app->runAction('/seeker/seekerdashboard',['model'=>$model]);
+
+
+                return $this->render('/seeker/seekerdashboard', ['model' => $model]);
+            }
+
+        } else {
+
+            return $this->render(
+                '/seeker/login_seeker',
+
+                [
+
+                    'model' => $model,
+
+                ]);
+
+
+        }
+    }
     /**
      *
      * Edit job types for a job seeker
