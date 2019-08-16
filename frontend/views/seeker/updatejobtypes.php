@@ -79,7 +79,7 @@ use yii\bootstrap\Modal;
             ?>
             <hr>
             <div class="text-center">
-                <a type="button" class="btn mybtnsuccess" href="<?=Url::to(['seeker/seekerprofile'])?>"> Finish Registration <i class="far fa-check-square"></i> </a>
+                <a type="button" class="btn mybtnsuccess" href="<?=Url::to(['seeker/seekerprofile'])?>"> Finish Adding Skills <i class="far fa-check-square"></i> </a>
             </div>
         </div>
 

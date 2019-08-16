@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use Twilio\Rest\Client;
 use common\models\User;
 use frontend\models\BookmarkSeeker;
 use frontend\models\SeekerNotification;
@@ -714,10 +715,14 @@ class ProviderController extends Controller
      *
      * Confirming candidates form data and DB save
      */
+    /**
+     *  @throws \Twilio\Exceptions\ConfigurationException
+     * @throws \Twilio\Exceptions\TwilioException
+     */
 
     public function actionConfirmoffer(){
 
-
+    $provider = Provider::findOne(['provider_id'=>Yii::$app->user->identity->provider->provider_id]);
         $selected = new SelectedSeeker();
 
         $selected->load(Yii::$app->request->post());
@@ -731,7 +736,49 @@ class ProviderController extends Controller
 
         $provider_job = ProviderJob::findOne(['provider_job_id'=>$provider_job_id]);
 
-       // $seekers_to_confirm
+
+        $selected_seeker_array = SelectedSeeker::find()
+            ->select(['seeker_id'])
+            ->where(['provider_id'=>$provider->provider_id])
+            ->andWhere(['provider_job_id'=>$provider_job_id])
+            ->andWhere(['status'=>'Selected'])
+            ->all();
+
+        foreach ($selected_seeker_array as $s) {
+
+            $notify = new SeekerNotification();
+
+            $seeker = Seeker::findOne(['seeker_id'=>$s]);
+            // DB notification
+            $notify->seeker_id = $seeker->seeker_id;
+
+            $notify->message = 'You have a new offer';
+            $notify->type = 'Offer';
+            $notify->from_email = $provider->email;
+            $notify->save();
+
+            // Email notification
+            Yii::$app->mailer->compose()
+                ->setTo($seeker->email)
+                ->setFrom(Yii::$app->params['adminEmail'])
+                ->setSubject('You have got an Offer!')
+                ->setTextBody('Congratulations! You have got an offer as '.$provider_job->job_title)
+                ->send();
+
+            // SMS notification
+
+
+            $sid = Yii::$app->params['SID'];
+            $auth = Yii::$app->params['AUTH'];
+            $client = new Client($sid, $auth);
+            $client->messages->create('+'.$seeker->phone,
+                ['from' => '+12512502192',
+                    'body' => 'You have got a new Offer! Visit Hiretech for more info.'
+                ]);
+
+        }
+
+        // Notifying selected job seekers ends
 
             //-------- Update SelectedSeeker columns matching the following--
         SelectedSeeker::updateAll([
@@ -745,6 +792,8 @@ class ProviderController extends Controller
 //---------------------------------------------------------------------------
 
         //-------
+
+
 
         $provider_job->status = 3;
         $date_time = new DateTime();
@@ -775,6 +824,7 @@ class ProviderController extends Controller
         return $this->render('providerdashboard',
             [
                 'provider_job'=>$provider_job,
+                'seekers'=>$selected_seeker_array,
 
             ]);
 

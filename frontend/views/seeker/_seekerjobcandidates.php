@@ -12,6 +12,7 @@ use yii\widgets\Pjax;
 use frontend\models\SeekerSearchForm;
 use frontend\models\SelectedSeeker;
 use frontend\models\BookmarkSeeker;
+use frontend\models\ProviderJob;
 
 ?>
 
@@ -38,13 +39,37 @@ use frontend\models\BookmarkSeeker;
         $age = $difference->y;
 
         $providerid = Yii::$app->user->identity->provider->provider_id;
-
+        $selected = new SelectedSeeker();
+        $provider_job = new ProviderJob();
         ?>
 
         <div class="col-md-4 col-sm-6  ">
             <img src="<?=Url::to(['img/upload/'.$model->picture])?>" class="img-responsive" width="150px">
         </div>
         <div class="col-md-8 col-sm-6 ">
+<!---  -->
+            <?php
+            $check_selected = false;
+            if($selected->selected($providerid,$model->seeker_id)) {
+                $check_selected = true;
+                $provider_job_id = $selected->selected_model($providerid, $model->seeker_id)
+                    ->provider_job_id;
+
+
+                ?>
+                <h4 >
+                    <span class="label label-default right_top">
+                    <i class="fa fa-user-tag"></i>
+                        <?= ucfirst($provider_job->getProviderJob($provider_job_id)->job_title) ?>
+                        <i class="fa fa-check-circle "></i>
+                    </span>
+                </h4>
+                <?php
+            }
+            ?>
+
+<!---  -->
+
             <h3><?=$model->firstname?> <?=$model->lastname?>, <b><?=strtoupper(substr($model->gender,0,1))?>,<?=$age?>
                     <?php
                     // date_diff(date_create($dob),date_create($today))->format('%Y')

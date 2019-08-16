@@ -124,14 +124,7 @@ $session->open();
             if($selectednumber != 0) {
                 ?>
 
-                <div class="alert alert-info text-center somespace animated bounceIn">
-                    <a
-                        href="<?=Url::to(['provider/candidatesbyjob','provider_job_id'=>$provider_job_id])?>"
-                        class="alert-link">
-                        <span class="fa fa-spinner fa-spin"></span>
-                        Click to Confirm Selected Candidates (<?=$selectednumber?>)
-                    </a>
-                </div>
+
                 <?php
             }
             ?>
@@ -156,6 +149,7 @@ $session->open();
             echo ListView::widget([
                 'dataProvider'=>$model,
                 'itemView'=>'/seeker/_seekerjobcandidates',
+               // 'itemView'=>'/seeker/_seeker',
                 'emptyText'=>'No results found!',
 
                 'viewParams'=>[

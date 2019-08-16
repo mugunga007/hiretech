@@ -24,7 +24,7 @@ use yii\widgets\ListView;
       <?=ListView::widget([
           'dataProvider'=>$model,
           'itemView'=> '_notifications_list',
-         // 'emptyText'=>'No notification to show'
+          'emptyText'=>'No notification to show'
       ])?>
 
     </div>
