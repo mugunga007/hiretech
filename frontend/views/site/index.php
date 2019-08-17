@@ -63,12 +63,11 @@ use yii\helpers\Url;
 
 
 
-                    <a type="button" href="<?=Url::to(['provider/login'])?>"
+                    <a type="button" id="element"  href="<?=Url::to(['provider/login'])?>"
                        class="btn btn-lg mybtnprimary">
                         <i class="fa fa-user"></i>
                         Employer
                     </a>
-
 
 
                 </div>
@@ -128,3 +127,13 @@ use yii\helpers\Url;
 
 
 
+<script>
+    $(document).ready(function(){
+        $("#hide").click(function(){
+            $("p").hide();
+        });
+        $("#show").click(function(){
+            $("p").show();
+        });
+    });
+</script>

@@ -32,6 +32,8 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+
+
 </head>
 <br>
 <?php $this->beginBody() ?>

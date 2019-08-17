@@ -22,7 +22,9 @@ class AppAsset extends AssetBundle
     ];
     public $js = [
         'https://unpkg.com/aos@next/dist/aos.js',
-        'https://cdn.jsdelivr.net/npm/sweetalert2@8'
+        'https://cdn.jsdelivr.net/npm/sweetalert2@8',
+        'https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.6/dist/loadingoverlay.min.js',
+        'https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',
