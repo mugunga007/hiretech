@@ -6,6 +6,7 @@ use yii\helpers\ArrayHelper;
 use frontend\models\JobType;
 use kartik\date\DatePicker;
 
+
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Seeker */
 /* @var $form yii\widgets\ActiveForm */
@@ -37,6 +38,11 @@ use kartik\date\DatePicker;
             'todayHighlight' => true
         ]
     ]));?>
+
+
+
+
+
 
 
 
