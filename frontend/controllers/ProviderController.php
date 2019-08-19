@@ -769,7 +769,7 @@ class ProviderController extends Controller
                 ->send();
 
             // SMS notification
-
+            /*
 
             $sid = Yii::$app->params['SID'];
             $auth = Yii::$app->params['AUTH'];
@@ -778,6 +778,7 @@ class ProviderController extends Controller
                 ['from' => '+12512502192',
                     'body' => 'You have got a new Offer! Visit Hiretech for more info.'
                 ]);
+            */
 
         }
 
