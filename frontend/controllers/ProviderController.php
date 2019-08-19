@@ -1,7 +1,7 @@
 <?php
 
 namespace frontend\controllers;
- require __DIR__ . '../../vendor/autoload.php';
+// require __DIR__ . '../../vendor/autoload.php';
  use Twilio\Rest\Client;
 use common\models\User;
 use frontend\models\BookmarkSeeker;
