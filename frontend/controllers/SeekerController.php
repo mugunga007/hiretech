@@ -586,7 +586,8 @@ public function actionSearchseekerss()
 
 
 
-       return $this->redirect(Yii::$app->request->referrer);
+       return $this->render('seekerdashboard',
+           ['model'=>$model]);
 
 
     }
