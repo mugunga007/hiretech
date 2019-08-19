@@ -94,7 +94,8 @@ use yii\bootstrap\Modal;
             <h5><b><i class="fa fa-info"></i> Gender:</b><?=ucfirst($model->gender)?></h5>
              <h5><b><i class="fa fa-birthday-cake"></i> Date Of Birth:</b> <?=$model->dob?></h5>
              <h5><b><i class="fa fa-map-marker"></i> Address</b> <?=$model->address?></h5>
-
+            <h5><b><i class="fa fa-envelope-open"></i> Email</b> <?=$model->email?></h5>
+            <h5><b><i class="fa fa-phone"></i> Phone</b> <?=$model->phone?></h5>
            <h5><i class="fa fa-briefcase"></i> <b>Job Type:</b>
                <?php
                $seekerjobtypes = $model->seekerJobTypes;
