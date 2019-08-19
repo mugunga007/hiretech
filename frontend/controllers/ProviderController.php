@@ -2,7 +2,7 @@
 
 namespace frontend\controllers;
 // require __DIR__ . '../../vendor/autoload.php';
-require_once "Twilio/autoload.php";
+// require_once "Twilio/autoload.php";
  use Twilio\Rest\Client;
 use common\models\User;
 use frontend\models\BookmarkSeeker;
