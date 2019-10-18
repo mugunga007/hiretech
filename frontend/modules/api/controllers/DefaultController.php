@@ -21,6 +21,15 @@ class DefaultController extends Controller
         return "Hello Api in Modules";
     }
 
+    public function actionHello(){
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        $apitest = new Apitest();
+        // $apitest->scenario = Apitest::SCENARIO_CREATE;
+
+        $apitest->attributes = \Yii::$app->request->get();
+        return ['status'=>true];
+    }
+
     public function actionCreate(){
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         $apitest = new Apitest();
@@ -37,4 +46,6 @@ class DefaultController extends Controller
             return ['status'=>false,'data'=>$apitest->getErrors()];
         }
     }
+
+
 }
