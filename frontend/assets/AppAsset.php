@@ -14,7 +14,7 @@ class AppAsset extends AssetBundle
     public $css = [
         'css/site.css',
         'css/mystyle.css',
-        'css/animate.css',
+       // 'css/animate.css',
         'https://unpkg.com/aos@next/dist/aos.css',
         'css/all.css',
         'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css',
