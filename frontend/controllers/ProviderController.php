@@ -1,9 +1,14 @@
 <?php
 
 namespace frontend\controllers;
+<<<<<<< HEAD
 // require __DIR__ . '../../vendor/autoload.php';
 // require_once "Twilio/autoload.php";
  use Twilio\Rest\Client;
+=======
+
+use Twilio\Rest\Client;
+>>>>>>> Notification to all selected (Email, SMS, DB)
 use common\models\User;
 use frontend\models\BookmarkSeeker;
 use frontend\models\SeekerNotification;
@@ -769,7 +774,11 @@ class ProviderController extends Controller
                 ->send();
 
             // SMS notification
+<<<<<<< HEAD
             /*
+=======
+
+>>>>>>> Notification to all selected (Email, SMS, DB)
 
             $sid = Yii::$app->params['SID'];
             $auth = Yii::$app->params['AUTH'];
@@ -778,7 +787,10 @@ class ProviderController extends Controller
                 ['from' => '+12512502192',
                     'body' => 'You have got a new Offer! Visit Hiretech for more info.'
                 ]);
+<<<<<<< HEAD
             */
+=======
+>>>>>>> Notification to all selected (Email, SMS, DB)
 
         }
 

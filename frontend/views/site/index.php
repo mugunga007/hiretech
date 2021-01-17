@@ -37,7 +37,6 @@ use yii\helpers\Url;
 
                             <div class="col-sm-6 ">
                                 <a type="button" href="<?=Url::to(['provider/create'])?>"
-                                   class="btn btn-lg mybtnprimary">Looking for an employee
                                     </a>
                             </div>
                         </div>
