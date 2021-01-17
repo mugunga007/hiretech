@@ -31,7 +31,7 @@ use yii\helpers\Url;
                         <div class="row">
                             <div class="col-sm-6">
                                 <a type="button" href="<?=Url::to(['seeker/create'])?>"
-                                   class="btn btn-lg mybtnprimary">Searching for a job.
+                                   class="btn btn-lg mybtnprimary">Searching for a job
                                     </i></a>
                             </div>
 
