@@ -1069,7 +1069,7 @@ class ProviderController extends Controller
             ->andWhere(['status'=>'Accepted']);
 
         return $this->render('providerdashboard',[
-            'candidates'=>$candidates,
+//            'candidates'=>$candidates,
             'provider_job'=>$provider_job_id
         ]);
     }
