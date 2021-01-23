@@ -24,7 +24,7 @@ use yii\helpers\Url;
 
 
                             <h3>Are you looking for the <em class="mycolor">right</em> employee?</h3>
-                            <h3>Are you looking for the <b class="mycolor">right</b> job? </h3>
+                            <h3>Are you looking for the <em class="mycolor">right</em> job? </h3>
 
                             <em>You're at the <em class="mycolor">right</em> place. Register with us and open the <b class="mycolor">right</b> doors!</em>
                         </div>
