@@ -58,7 +58,7 @@ use yii\helpers\Url;
                     <a type="button" href="<?=Url::to(['seeker/login'])?>"
                        class="btn btn-lg mybtnprimary">
                         <i class="fa fa-user"></i>
-                        Jobseeker
+                        Job Seeker
                         </a>
 
 
