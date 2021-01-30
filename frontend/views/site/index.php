@@ -49,13 +49,12 @@ use yii\helpers\Url;
         </div>
 
         <div class="col-md-4  ">
-            <div class="row">
+
             <div class="animated fadeInRight">
                 <div class="myform">
                     <div class="well well-sm text-center "> Already Registered? Sign in </div>
-                </div>
 
-                <div class="row">
+
 
                     <a type="button" href="<?=Url::to(['seeker/login'])?>"
                        class="btn btn-lg mybtnprimary">
@@ -71,7 +70,7 @@ use yii\helpers\Url;
                         Employer
                     </a>
 
-                </div>
+
                 </div>
             </div>
         </div>
