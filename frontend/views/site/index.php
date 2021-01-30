@@ -56,14 +56,13 @@ use yii\helpers\Url;
                 </div>
 
                 <div class="row">
-                <div class="col-sm-6">
+
                     <a type="button" href="<?=Url::to(['seeker/login'])?>"
                        class="btn btn-lg mybtnprimary">
                         <i class="fa fa-user"></i>
                         Job Seeker
                         </a>
-                </div>
-                    <div class="col-sm-6">
+
 
 
                     <a type="button" id="element"  href="<?=Url::to(['provider/login'])?>"
@@ -71,9 +70,8 @@ use yii\helpers\Url;
                         <i class="fa fa-user"></i>
                         Employer
                     </a>
-                    </div>
 
-                </div>>
+                </div>
                 </div>
             </div>
         </div>
