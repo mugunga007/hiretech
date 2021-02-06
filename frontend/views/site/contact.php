@@ -22,8 +22,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
     <p>
-        Any Concern or Suggestion about <b>HireTech</b>?,
-        Don't hesitate to write to us, We will get back to you shortly, Thank you.
+        Want to contact <b>HireTech</b>?,
+        Don't hesitate to write to us, We will get back to you as soon as possible.
     </p>
         </div>
     </div>
@@ -50,12 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <?= $form->field($model, 'body')->textarea(['rows' => 6]) ?>
 
-                <?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
-                    'template' => '<div class="row">
-            <div class="col-md-8">{image}</div>
-            <div class="col-md-8">{input}</div>
-            </div>',
-                ]) ?>
+
 
                 <div class="form-group">
                     <?= Html::submitButton('Submit', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
