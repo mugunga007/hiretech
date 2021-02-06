@@ -95,20 +95,17 @@ use yii\helpers\Url;
             <div class="col-lg-4 text-center">
                 <div data-aos="fade-right">
                     <h2><i class="fa fa-user-tie fa-2x"></i></h2>
-                    <h4><b>Find employees easily</b></h4>
-                    <p>Our search will make it easy to find someone
-                        looking for with various search options
-                        and be able to decide through a group of people chosen.</p>
+                    <h4><b>Find Employees Fast</b></h4>
+                    <p>With various search options, you get to choose employees you're looking for like never before.</p>
 
                     <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">More &raquo;</a></p>
                 </div>
             </div>
             <div class="col-lg-4 text-center">
                 <div data-aos="fade-up">
-                <h2><i class="fa fa-globe-africa fa-2x"></i></h2>
-                    <h4><b>Search till you find</b></h4>
-                <p>After unsuccessful interviews, you can repeat the process
-                    until you find the right one you are looking for.</p>
+                <h2><i class="fa fa-sms fa-2x"></i></h2>
+                    <h4><b>SMS Notifications</b></h4>
+                <p>For faster reach out, we deliver your offer on Smart to feature phone via message or SMS.</p>
 
                 <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">More &raquo;</a></p>
                 </div>
@@ -116,9 +113,8 @@ use yii\helpers\Url;
             <div class="col-lg-4 text-center">
                 <div data-aos="fade-left">
                     <h2><i class="far fa-clock fa-2x"></i></h2>
-                    <h4><b>Always on your prefered time</b></h4>
-                    <p>Look for the right employee on your deadline, and
-                        they will be notified faster.</p>
+                    <h4><b>We respect your time</b></h4>
+                    <p>Our system will provide you trustful employee the next day.</p>
 
                     <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">More &raquo;</a></p>
                 </div>
