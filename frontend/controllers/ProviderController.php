@@ -769,12 +769,12 @@ class ProviderController extends Controller
             $notify->save();
 
             // Email notification
-            Yii::$app->mailer->compose()
-                ->setTo($seeker->email)
-                ->setFrom(Yii::$app->params['adminEmail'])
-                ->setSubject('You have got an Offer!')
-                ->setTextBody('Congratulations! You have got an offer as '.$provider_job->job_title)
-                ->send();
+//            Yii::$app->mailer->compose()
+//                ->setTo($seeker->email)
+//                ->setFrom(Yii::$app->params['adminEmail'])
+//                ->setSubject('You have got an Offer!')
+//                ->setTextBody('Congratulations! You have got an offer as '.$provider_job->job_title)
+//                ->send();
 
             // SMS notification
 ////<<<<<<< HEAD

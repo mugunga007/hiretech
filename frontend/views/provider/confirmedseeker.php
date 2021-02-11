@@ -30,7 +30,7 @@ use yii\widgets\ListView;
 
         </div>
         <div class="col-md-8">
-            <div class="well well-sm text-center"><i class="fa fa-user-graduate"></i> Candidates Your Confirmed for <b><?=ucfirst($job_title)?></b> Offer </div>
+            <div class="well well-sm text-center"><i class="fa fa-user-graduate"></i> Candidates You Confirmed for <b><?=ucfirst($job_title)?></b> Offer </div>
             <?php
 
             echo ListView::widget([
